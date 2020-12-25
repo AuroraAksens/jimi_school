@@ -1,0 +1,16 @@
+.loading{
+  width: 200rpx;
+  height: 50rpx;
+  position: fixed;
+  top: 700rpx;
+  right: 0;
+  left: 0;
+  margin: auto;
+  font-size: 40rpx;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  overflow: hidden;
+}
+.loading>image{
+  width: 200rpx;
+  height: 50rpx;
+}

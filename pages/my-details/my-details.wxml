@@ -1,0 +1,50 @@
+<!--pages/my-details/my-details.wxml-->
+<view class="px-20 mt-10">
+	<view class="item-box">
+		<view>头像</view>
+		<view class="img d-fx ai-center jc-between" bindtap="fileImg">
+			<image class="mr-20" style="border-radius: 50%;" src="{{type == 0 ? userInfo.image : image}}"></image>
+			<image src="/images/icon/go.png" style="width: 30rpx;height: 30rpx;"></image>
+		</view>
+	</view>
+
+	<view class="item-box">
+		<view>昵称</view>
+		<view class="img d-fx ai-center jc-between" bindtap="goDetailsName">
+			{{userInfo.name}}
+			<image class="ml-30" src="/images/icon/go.png" style="width: 30rpx;height: 30rpx;"></image>
+		</view>
+	</view>
+
+	<view class="item-box">
+		<view>自我介绍</view>
+		<view class="img d-fx ai-center jc-end" bindtap="goDetailsText">
+			<image src="/images/icon/go.png" style="width: 30rpx;height: 30rpx;"></image> 
+		</view>
+	</view>
+
+	<view class="item-box">
+		<view>性别</view>
+		<view class="img d-fx ai-center jc-center" style="color:#A2A2A2">
+			{{userInfo.genderlist == 0 ? '女生' : '男生'}}
+		</view>
+	</view>
+
+	<view class="item-box">
+		<view>学校</view>
+
+		<view class="img d-fx ai-center jc-end" style="width: 220rpx;color:#A2A2A2;width: 530rpx;">
+			{{userInfo.school.name}}
+		</view>
+	</view>
+
+	<view class="item-box">
+		<view>年级</view>
+		<view class="img d-fx ai-center jc-center" style="color:#A2A2A2">
+			{{userInfo.grade}}级
+		</view>
+	</view>
+
+</view>
+
+<view class="MYtips">需要修改性别，学校，年级信息请联系客服</view>

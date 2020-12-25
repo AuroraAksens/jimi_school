@@ -1,0 +1,49 @@
+/* pages/school/school.wxss */
+.search{
+  width: 90%;
+  margin: auto;
+}
+.search>.search-inp{
+  width: 100%;
+  background-color: white;
+  text-align: center;
+}
+.tip{
+  color: #F4AE3B
+}
+
+
+.search-text{
+  width: 94%;
+  min-height: 600rpx;
+  background-color: white;
+  margin: 20rpx auto;
+}
+.search-text>.title{
+  width: 90%;
+  height: 30rpx;
+  color: #979797;
+  font-size: 26rpx;
+}
+/* 选择省份 */
+.search-text>.body{
+  width: 100%;
+}
+.search-text>.body>.box{
+  background-color: #F2F2F2;
+  color: #3A3939;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+  font-size: 24rpx;
+}
+
+/* 选择学校 */
+.search-text>.schoolBody{
+  width: 92%;
+}
+.search-text>.schoolBody>.bodyText{
+  color: #505050;
+  border-top: 1rpx solid #dfdfdf;
+}
+
+

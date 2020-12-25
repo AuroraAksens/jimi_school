@@ -1,0 +1,66 @@
+<!--pages/personal-data/personal-data.wxml-->
+<view class="personal-data pt-30">
+	<view class="dataBox mt-30">
+		<view class="dataBoxTop d-fx jc-start ai-center">
+			<image src="/images/icon/name.png"></image>
+			<view class="ml-20">昵称</view>
+		</view>
+		<view class="dataBoxFoot mt-10">
+			<input type="text" data-name="{{name}}" bindinput="bindName" value="{{name}}" style="color: #4e4e4e;"></input>
+		</view>
+	</view>
+
+	<view class="dataBox mt-30">
+		<view class="dataBoxTop d-fx jc-start ai-center">
+			<image src="/images/icon/school.png"></image>
+			<view class="ml-20">学校</view>
+		</view>
+		<view class="dataBoxFoot mt-10">
+				<view class="picker mt-20  d-fx jc-between" bindtap="bindSchoolChange">
+					<input disabled="true" value="{{schoolName ? schoolName : '请选择学校'}}" style="color: #4e4e4e;"></input>
+					<image src="/images/icon/selectxia.png" style="width:35rpx;height:35rpx"></image>
+				</view>
+		</view>
+	</view>
+
+	<view class="dataBox mt-30">
+		<view class="dataBoxTop d-fx jc-start ai-center">
+			<image src="/images/icon/time.png"></image>
+			<view class="ml-20">入学年份</view>
+		</view>
+		<view class="dataBoxFoot mt-10">
+			<picker mode="date" fields="year" start="2000" end="2020" value="{{date}}" bindchange="bindDateChange">
+				<view class="picker d-fx jc-between">
+					<input disabled="true" value="{{date}}" style="color: #4e4e4e;"></input>
+					<image src="/images/icon/selectxia.png" style="width:35rpx;height:35rpx"></image>
+				</view>
+			</picker>
+		</view>
+	</view>
+
+	<view class="dataBox mt-30">
+		<view class="dataBoxTop d-fx jc-start ai-center">
+			<image src="/images/icon/Gender.png"></image>
+			<view class="ml-20">性别</view>
+		</view>
+		<view class="Gender d-fx jc-around mb-10 mt-30">
+			<view bindtap="boySelect">
+				<image src="{{gender == 1 ? '/images/icon/boySelect.png' : '/images/icon/boy.png'}}" style="width:230rpx;height:230rpx"></image>
+			</view>
+			<view bindtap="girlSelect">
+				<image src="{{gender == 0 ? '/images/icon/girlSelect.png' : '/images/icon/girl.png'}}" style="width:230rpx;height:230rpx"></image>
+			</view>
+		</view>
+	</view>
+
+  <view class="dataBox mb-30">
+		<view class="dataBoxTop d-fx jc-around ai-center">
+			<view style="{{gender == 1 ? 'color:#FDAE3C' : ''}}">男生</view>
+			<view style="{{gender == 0 ? 'color:#FDAE3C' : ''}}">女生</view>
+		</view>
+	</view>
+
+	<!-- <button class="btn bou-15 mt-30">完成</button> -->
+	<button class="btns bou-15 mt-30" bindtap="postData">完成</button>
+
+</view>

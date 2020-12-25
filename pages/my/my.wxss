@@ -1,0 +1,137 @@
+/* pages/my/my.wxss */
+page{
+  background-color: white;
+}
+
+/* 个人信息 */
+.personal{
+  width: 100%;
+}
+.personal>.name{
+  width: 50%;
+  height: 100%;
+  font-size: 36rpx;
+}
+.Gender{
+  width: 30rpx;
+  height: 30rpx;
+}
+.personal>.name>button>.login{
+  width: 150rpx;
+height: 50rpx;
+font-size: 22rpx;
+background-color: #F4AE3B;
+text-align: center;
+line-height: 50rpx;
+border-radius: 6rpx;
+
+}
+.personal>.name>button>.logins{
+  width: 250rpx;
+  height: 50rpx;
+  font-size: 22rpx;
+  background-color: #F4AE3B;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 6rpx;
+}
+.personal>.tou{
+  width: 45%;
+  height: 100%;
+  position: relative;
+}
+.personal>.tou>.avatar{
+  width: 120rpx;
+  height: 120rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.personal>.tou>.vip{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  bottom: -6rpx;
+  right: 8rpx;
+}
+/* 任务卡 */
+.Task-card{
+  width: 100%;
+  height: 255rpx;
+  background-color: #44435E;
+  color: #FFFFFF;
+}
+.Task-card>.head{
+  width: 100%;
+  height: 80rpx;
+  border-bottom: 1px solid #707070;
+}
+.Task-card>.head>.left{
+  width: 180rpx;
+  height: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+.Task-card>.head>.right{
+  width: 180rpx;
+  height: 100%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 25rpx;
+  color: #919090;
+}
+
+.Task-card>.body{
+  width: 100%;
+  height: 170rpx;
+}
+.Task-card>.body>.icon{
+  width: 70rpx;
+  height: 120rpx;
+  line-height: 42rpx;
+  font-size: 23rpx;
+  color: #C3C3C9;
+  text-align: center;
+}
+.Task-card>.body>.icon>image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.option>.body{
+  position: relative;
+}
+
+button{
+  background-color:transparent; 
+  border-radius: 0rpx;
+  padding:0rpx !important;
+  margin:0rpx;
+  display: inline-block;
+  line-height: 1;
+  
+  }
+  
+  button::after{ /*button的边框样式是通过::after方式实现的*/
+  border:none;
+  }
+  
+  .button-hover{ /*点击后样式*/
+  color:#000;
+  background-color: transparent;
+  }
+
+  .dot{
+    min-width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    background-color: rgb(253, 67, 67);
+    color: white;
+    position: absolute;
+    top: 30rpx;
+    left: 48rpx;
+    font-size: 18rpx;
+    line-height: 30rpx;
+    text-align: center;
+    padding: 0 2rpx 0 2rpx;
+  }

@@ -1,0 +1,40 @@
+<!--pages/dynamic/dynamic.wxml-->
+<form wx:if="{{statusID == 0}}" catchsubmit="{{type ? 'postText' : 'checkLogin'}}">
+	<view class="text py-30 mx-30">
+		<textarea class="text-box" bindblur="bindTextAreaBlur" name="text" auto-height placeholder="分享校园好玩动态（限140个字符）" maxlength="140"></textarea>
+	</view>
+
+	<view class="img d-fx jc-start flex-w pl-30">
+		<block wx:for="{{arrImg}}" wx:key="index">
+			<view class="imageArr mr-20">
+				<image bindtap="showImg" data-imgSrc="{{item}}" src="{{item}}" style="width: 210rpx;height: 210rpx;" class="mr-20 mt-20"></image>
+				<view data-index="{{index}}" bindtap="deleteImage" class="delete">
+					<image src="/images/icon/deleteimg.png"></image>
+				</view>
+			</view>
+		</block>
+
+		<image bindtap="chooseImg" class="mr-20" src="/images/icon/tianjia.png" style="width: 210rpx;height: 210rpx;"></image>
+	</view>
+
+	<button class="buttom bou-15" formType="submit">
+		发布动态
+	</button>
+</form>
+
+<form wx:if="{{statusID == 1}}" catchsubmit="{{type ? 'postTransaction' : 'checkLogin'}}">
+	<view class="text py-30 mx-30">
+		<textarea class="text-box" bindblur="bindTextAreaBlur" name="text" auto-height placeholder="发布内容到市场进行交易（限140个字符）" maxlength="140"></textarea>
+	</view>
+
+	<view class="img pl-30">
+		<block wx:for="{{arrImg}}" wx:key="index">
+			<image bindtap="showImg" data-imgSrc="{{item}}" src="{{item}}" style="width: 210rpx;height: 210rpx;" class="mr-20 bou-15"></image>
+		</block>
+		<image bindtap="chooseImg" class="mr-20" src="/images/icon/tianjia.png" style="width: 210rpx;height: 210rpx;"></image>
+	</view>
+
+	<button class="buttom bou-15" formType="submit">
+		发布市场交易
+	</button>
+</form>

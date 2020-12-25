@@ -1,0 +1,19 @@
+<!--pages/help/help.wxml-->
+
+<view class="option mt-30">
+	<block wx:for="{{optionDatas}}" wx:key="index">
+		<view class="body d-fx ai-start flex-cl py-10 ml-10" data-index="{{item.id}}" bindtap="blockBox">
+			<view class="ml-30 pt-30 pb-20">{{item.title}}</view>
+			<view class="py-10 ml-30" wx:if="{{status == item.id}}" style="white-space:pre-wrap;word-break:break-all;font-size: 26rpx;color:#979797">{{item.content}}</view>
+		</view>
+	</block>
+</view>
+
+<view class="buttom  bou-15">
+	<view class="body d-fx jc-center ai-center">
+		<button open-type='contact' class="d-fx jc-center ai-center">
+			<image src="/images/icon/cs.png"></image>
+			联系我们
+		</button>
+	</view>
+</view>

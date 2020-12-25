@@ -1,0 +1,85 @@
+<!--pages/my-task/my-task.wxml-->
+<view class="h-title d-fx jc-around" style="overflow: hidden">
+	<block wx:for="{{title}}" wx:key="index">
+		<view class="{{sta == item.index ? 'active' : ''}}" data-index="{{item.index}}" bindtap="selectTitle">
+			{{item.name}}
+			<i class="{{sta == item.index ? 'bot' : ''}}"></i>
+		</view>
+	</block>
+</view>
+
+
+<view class="px-20 mt-10 pb-30" style="overflow: hidden">
+	<!-- m-card 任务 -->
+	<block wx:for="{{taskData}}" wx:key="index" wx:if="{{taskData.length != 0 }}">
+		<view class="m-card mt-20 bou-15">
+			<!-- head -->
+			<view class="head py-30 px-30 d-fx jc-start" bindtap="gotoDetails" data-id="{{item.id}}" data-status="1">
+				<view class="img">
+					<image src="{{item.user.image}}"></image>
+					<image wx:if="{{item.idCardStatus == 2}}" class="vip" src="/images/vip.png"></image>
+				</view>
+				<view class="title mt-20 ml-20">
+					<view class="title-namer">
+						{{item.user.name}}
+						<image class="Gender ml-10" wx:if="{{item.user.genderlist == 0 && item.user.admin_id == 0}}" src="/images/icon/show.png"></image>
+						<image class="Gender ml-10" wx:if="{{item.user.genderlist == 1 && item.user.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+						<image class="official ml-10" wx:if="{{item.user.admin_id == 1}}" src="/images/icon/official.png"></image>
+					</view>
+					<view class="title-bottom pt-10 d-fx">
+						<view>{{item.create_time}}</view>
+						<view class="ml-30">{{item.user.school.name}}</view>
+					</view>
+				</view>
+				<view class="status-new" wx:if="{{item.state == 0}}">新发布</view>
+				<view class="status-conduct" wx:if="{{item.state == 1}}">已接单</view>
+				<view class="status-settlement" wx:if="{{item.state == 2}}">待结算</view>
+				<view class="status-sell" wx:if="{{item.state == 3}}">已结算</view>
+				<view class="status-ancel" wx:if="{{item.state == 4}}">已取消</view>
+			</view>
+			<!-- head结束 -->
+
+			<!-- body -->
+			<view class="body py-30" url="/pages/details/details" bindtap="gotoDetails" data-id="{{item.id}}" data-status="1">
+
+				<view wx:if="{{item.images}}" class="img px-30 mx-10 d-fx jc-start">
+					<block wx:for="{{item.images}}" wx:key="index">
+						<image src="{{item}}"></image>
+					</block>
+				</view>
+
+				<view class="task mx-30 py-30 px-30 bou-15">
+					<view class="head d-fx jc-between pb-30">
+						<view wx:if="{{item.express.length>0}}">取快递{{item.express.length}}件</view>
+						<view wx:else>其他任务</view>
+						<view style="color:#FC2C43;">￥{{item.money}}</view>
+					</view>
+					<view class="content" wx:if="{{item.express.length>0}}">
+						<view class="d-fx jc-between pt-20">
+							<view>取件地点</view>
+							<view>{{item.express[0].access_place}}</view>
+						</view>
+						<view class="d-fx jc-between pt-20">
+							<view>送达地点</view>
+							<view>{{item.express[0].service_place}}</view>
+						</view>
+						<view class="remarks pt-20">备注：{{item.express[0].message}}</view>
+					</view>
+
+					<view class="content" wx:else>
+						<view class="remarks pt-20">{{item.represent}}</view>
+					</view>
+
+				</view>
+
+
+			</view>
+			<!-- body结束 -->
+
+		</view>
+	</block>
+	<!-- m-card 任务结束 -->
+
+	<view class="noData" wx:if="{{taskData.length == 0 }}">暂无数据</view>
+
+</view>

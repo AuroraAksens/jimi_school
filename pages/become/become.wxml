@@ -1,0 +1,53 @@
+<view class="head d-fx ai-center" style="overflow: hidden;">
+	<image class="pr-10 pl-30" src="/images/icon/protect.png"></image>
+	信息安全保护中，未经用户允许绝不对外提供
+</view>
+
+<view class="body">
+	<view class="text ml-10 pl-30 d-fx flex-cl jc-end">
+		<view class="title1 py-20">
+			认证权益
+		</view>
+		<view class="title2 py-20"> 
+			完成认证，即可在平台自由接单，并获得认证标识
+		</view>
+		<view class="title3 py-20">
+			<image src="/images/icon/warning.png"></image>
+			未完成身份认证用户，仅可以发布需求，不得接单
+		</view>
+	</view>
+	<view class="img mx-20 mt-20">
+		<view class="text">
+			<navigator hover-class="none" url="{{status == 1 ? '' : '/pages/identity/identity'}}">
+
+				<view wx:if="{{status == null}}" class="d-fx ai-center" style="font-size:41rpx;font-weight:bold;height: 40rpx">
+					实名认证
+					<image class="ml-20" style="width:40rpx;height:40rpx" src="/images/icon/authentication-go.png"></image> 
+				</view>
+
+				<view wx:if="{{status == 1}}" class="d-fx ai-center" style="font-size:41rpx;font-weight:bold;height: 40rpx">
+					已提交认证中
+				</view>
+
+				<view wx:if="{{status == 3}}" class="d-fx ai-center" style="font-size:41rpx;font-weight:bold;height: 40rpx">
+					认证失败，请重新认证
+					<image class="ml-20" style="width:40rpx;height:40rpx" src="/images/icon/authentication-go.png"></image> 
+				</view>
+
+			</navigator>
+
+			<view wx:if="{{status == null}}" class="mt-10" style="font-size:30rpx;color:#654D15">需要进行身份认证</view>
+
+			<view wx:if="{{status == 1}}" class="mt-10" style="font-size:30rpx;color:#654D15">如需加急请联系我们</view>
+
+			<view wx:if="{{status == 3}}" class="mt-10" style="font-size:30rpx;color:#654D15">认证未通过，请重新进行身份认证</view>
+
+		</view>
+		<image src="/images/authentication-img.png"></image>
+	</view>
+</view>
+
+<view class="foot">
+	<view>请保重您本人的信息真实有效</view>
+	<view>虚假信息会对您的信用评估造成影响</view>
+</view>

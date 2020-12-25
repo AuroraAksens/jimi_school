@@ -1,0 +1,190 @@
+<!-- 个人信息 -->
+<view class="m-card mt-20 bou-15" style="background-color: rgba(0, 0, 0, 0);overflow: hidden">
+	<image src="/images/personal-background.png"></image>
+	<view class="head py-30 px-30 d-fx jc-start">
+		<view class="img">
+			<image src="{{userInfo.image}}"></image>
+			<image wx:if="{{vipshow == 2}}" class="vip" src="/images/vip.png"></image>
+		</view>
+		<view class="title mt-20 ml-20">
+			<view class="title-namer">
+				{{userInfo.name}}
+				<image class="Gender ml-10" wx:if="{{userInfo.genderlist == 0 && userInfo.admin_id == 0}}" src="/images/icon/show.png"></image>
+				<image class="Gender ml-10" wx:if="{{userInfo.genderlist == 1 && userInfo.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+				<image class="official ml-10" wx:if="{{userInfo.admin_id == 1}}" src="/images/icon/official.png"></image>
+			</view>
+			<view class="title-bottom pt-10 d-fx">
+				<view style="color:black">{{userInfo.school.name}}</view>
+			</view>
+		</view>
+		<view class="go py-30" bindtap="goMyDetails" wx:if="{{userInfo.id != userid}}">
+			<image src="/images/icon/go.png"></image>
+		</view>
+	</view>
+	<view class="brief pb-30 px-30 d-fx ai-center jc-center" wx:if="{{userInfo.id != userid  && userInfo.introduce == null}}">
+		这个人很懒，什么都没写
+	</view>
+	<view class="brief pb-30 px-30 d-fx ai-center jc-center" wx:if="{{userInfo.id != userid  && userInfo.introduce != null}}">
+		{{userInfo.introduce}}
+	</view>
+</view>
+<!-- 个人信息结束 -->
+
+<!-- 任务卡 -->
+<view class="m-task px-20 d-fx jc-around bou-15">
+	<view class="body py-30 mx-30" data-index="0">
+		<view>{{userCensus.dynamic}}</view>
+		<view style="color:#999999">动态</view>
+	</view>
+	<view class="body py-30 mx-30" data-index="1">
+		<view>{{userCensus.task}}</view>
+		<view style="color:#999999">任务</view>
+	</view>
+	<view class="body py-30 mx-30" data-index="2">
+		<view>{{userCensus.tran}}</view>
+		<view style="color:#999999">交易</view>
+	</view>
+	<view class="body py-30 mx-30">
+		<view>{{userCensus.order}}</view>
+		<view style="color:#999999">接单</view>
+	</view>
+</view>
+<!-- 任务卡结束 -->
+
+<!-- 同学 -->
+<view class="classmate px-20 bou-15">
+	<view class="head pt-30 px-30 d-fx jc-between">
+		<view class="title">同学印象</view>
+		<view class="buttom px-30 bou-15" bindtap="goImpression">添加印象</view>
+	</view>
+
+	<view class="content pb-30 mb-30 d-fx jc-start flex-w" wx:if="{{userEffect.length != 0}}">
+		<block wx:for="{{userEffect}}" wx:key="index" wx:if="{{index < 9}}">
+			<view class="box px-20 my-10 mr-20 bou-15">{{item.name}}</view>
+		</block>
+	</view>
+
+	<view class="body py-30" wx:if="{{userEffect.length == 0}}">
+		暂无印象
+	</view>
+
+</view>
+<!-- 同学结束 -->
+
+<!-- 任务列表 -->
+<view class="listTask-head d-fx jc-between">
+	<view data-index="0" class="{{sta == 0 ? 'listTitles' : 'listTitle'}}" bindtap="selectSta">动态</view>
+	<view data-index="1" class="{{sta == 1 ? 'listTitles' : 'listTitle'}}" bindtap="selectSta">任务</view>
+	<view data-index="2" class="{{sta == 2 ? 'listTitles' : 'listTitle'}}" bindtap="selectSta">市场</view>
+</view>
+
+
+<!-- m-card 任务 -->
+<view class="listTask-body px-30 pb-30" style="overflow: hidden" wx:if="{{userTask.length != 0}}">
+	<block wx:for="{{userTask}}" wx:key="index">
+		<view class="m-card mt-20 bou-15">
+			<!-- head -->
+			<view class="head py-30 px-30 d-fx jc-start" bindtap="gotoDetails" data-id="{{item.id}}" data-status="{{item.enum}}" data-comment="{{item.com_count}}">
+				<view class="img">
+					<image src="{{item.user.image}}"></image>
+					<image wx:if="{{vipshow == 2}}" class="vip" src="/images/vip.png"></image>
+				</view>
+				<view class="title mt-20 ml-20">
+					<view class="title-namer">
+						{{item.user.name}}
+						<image class="Gender ml-10" wx:if="{{item.user.genderlist == 0 && item.user.admin_id == 0}}" src="/images/icon/show.png"></image>
+						<image class="Gender ml-10" wx:if="{{item.user.genderlist == 1 && item.user.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+						<image class="official ml-10" wx:if="{{item.user.admin_id == 1}}" src="/images/icon/official.png"></image>
+					</view>
+					<view class="title-bottom pt-10 d-fx">
+						<view>{{item.create_time}}</view>
+						<view class="ml-30">{{item.user.school.name}}</view>
+					</view>
+				</view>
+				<view class="status-dynamic" wx:if="{{item.type == 0}}">动态</view>
+				<view class="status-transaction" wx:if="{{item.type == 1}}">市场</view>
+				<view class="status-new" wx:if="{{item.state == 0}}">新发布</view>
+				<view class="status-conduct" wx:if="{{item.state == 1}}">已接单</view>
+				<view class="status-settlement" wx:if="{{item.state == 2}}">待结算</view>
+				<view class="status-sell" wx:if="{{item.state == 3}}">已结算</view>
+				<view class="status-ancel" wx:if="{{item.state == 4}}">已取消</view>
+			</view>
+			<!-- head结束 -->
+
+			<!-- body -->
+			<view class="body" bindtap="gotoDetails" data-id="{{item.id}}" data-status="{{item.enum}}" data-comment="{{item.com_count}}">
+
+				<view class="img px-30 mx-10 d-fx jc-start" wx:if="{{item.images}}">
+					<block wx:for="{{item.images}}" wx:key="index">
+						<image src="{{item}}"></image>
+					</block>
+				</view>
+
+				<view class="px-30 py-20" style="font-size:25rpx;color:#6B6B6B" wx:if="{{item.represent}}">{{item.represent}}</view>
+				<view class="px-30 py-20" style="font-size:25rpx;color:#6B6B6B" wx:if="{{item.content}}">{{item.content}}</view>
+
+				<view class="task mx-30 py-30 px-30 bou-15" wx:if="{{item.express}}">
+					<view class="head d-fx jc-between pb-30">
+						<view wx:if="{{item.express.length>0}}">取快递{{item.express.length}}件</view>
+						<view wx:else>其他任务</view>
+						<view style="color:#FC2C43;">￥{{item.money}}</view>
+					</view>
+					<view class="content" wx:if="{{item.express.length>0}}">
+						<view class="pt-20 d-fx">
+							<view class="d-fx jc-between ai-center" style="width:140rpx;">
+								<image src="/images/icon/access_place.png" style="width:25rpx;height:25rpx"></image> 取件地点
+							</view>
+							<view style="margin-left: 40rpx;width:240rpx;overflow: hidden; text-overflow: ellipsis;">{{item.express[0].access_place}}</view>
+						</view>
+						<view class="d-fx jc-start pt-20">
+							<view class="d-fx jc-between ai-center" style="width:140rpx;">
+								<image src="/images/icon/service_place.png" style="width:25rpx;height:25rpx"></image>送达地点
+							</view>
+							<view style="margin-left: 40rpx;width:240rpx;overflow: hidden; text-overflow: ellipsis;">{{item.express[0].service_place}}</view>
+						</view>
+					</view>
+
+					<view class="content" wx:else>
+						<view class="remarks pt-20">{{item.represent}}</view>
+					</view>
+				</view>
+			</view>
+
+			<!-- body结束 -->
+
+			<!-- foot -->
+			<view class="foot px-30 py-30 d-fx jc-end">
+				<view class="goods d-fx jc-start">
+					<view wx:if="{{item.good_status == true}}" class="box mr-30 pr-10 d-fx jc-start ai-center">
+						<image src="/images/icon/goods.png" data-id="{{item.id}}" data-index="{{index}}" bindtap="giveGood"></image>
+						<view class="pl-10">{{item.good}}</view>
+					</view>
+					<view wx:else class="box mr-30 pr-10 d-fx jc-start ai-center">
+						<image src="/images/icon/good.png" data-id="{{item.id}}" data-index="{{index}}" bindtap="giveGood"></image>
+						<view class="pl-10">{{item.good}}</view>
+					</view>
+					<view class="box mr-30 pr-10 d-fx jc-start ai-center">
+						<image src="/images/icon/comment.png"></image>
+						<view class="pl-10">{{item.com_count}}</view>
+					</view>
+					<view class="box mr-20 d-fx jc-start">
+						<button open-type="share" hover-class="btn-hover" data-id="{{item.id}}" data-status="{{item.enum}}">
+							<image class="share-img" src="/images/icon/share.png" bindtap="share"></image>
+						</button>
+					</view>
+				</view>
+			</view>
+			<!-- foot结束 -->
+
+		</view>
+	</block>
+</view>
+<!-- m-card 任务结束 -->
+
+<!-- 暂无数据 -->
+<view class="nodata" wx:if="{{userTask.length == 0}}">
+	<image src="/images/icon/NoData.png" style="width:100%;height:400rpx"></image>
+</view>
+<!-- 暂无数据结束 -->
+
+<!-- 任务列表结束 -->

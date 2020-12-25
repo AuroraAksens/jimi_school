@@ -1,0 +1,60 @@
+/* pages/personal-data/personal-data.wxss */
+.personal-data{
+  width: 85%;
+  margin: auto;
+}
+.personal-data>.dataBox{
+  width: 100%;
+}
+.personal-data>.dataBox>.dataBoxTop{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #8a8a8a;
+}
+.personal-data>.dataBox>.Gender{
+  width: 100%;
+  height: 240rpx;
+}
+.personal-data>.dataBox>.dataBoxTop>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.personal-data>.dataBox>.dataBoxFoot{
+  width: 100%;
+  height: 60rpx;
+  border-bottom: 3rpx solid #b8b8b8;
+}
+
+button::after {
+  border: none !important;
+  padding: 0 !important;
+}
+
+button {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  font-weight: 500 !important;
+  border-radius: none !important;
+}
+
+
+.btn{
+  width: 100%;
+  height: 80rpx;
+  background-color: #e7e7e7;
+  color: #494949;
+  line-height: 80rpx;
+}
+
+.btns{
+  width: 100%;
+  height: 80rpx;
+  background-color: #FDAE3C;
+  color: white;
+  line-height: 80rpx;
+}
+
+
+

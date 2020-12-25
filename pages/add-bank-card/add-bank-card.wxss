@@ -1,0 +1,56 @@
+/* pages/add-bank-card/add-bank-card.wxss */
+page {
+  background-color: #FFFFFF;
+}
+
+.addbank {
+  width: 90%;
+  margin: auto;
+}
+
+.topTitle {
+  width: 260rpx;
+  height: 60rpx;
+  color: #FDAE3C;
+  line-height: 60rpx;
+  font-size: 34rpx;
+}
+
+.addbank>.formBank {
+  width: 100%;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+
+.addbank>.formBank>.title {
+  width: 220rpx;
+  color: #666666;
+}
+
+.addbank>.formBank>.inp {
+  width: 100%;
+}
+
+.cardButtom {
+  width: 90% !important;
+  height: 100rpx;
+  background-color: #FDAE3C;
+  margin: 40rpx auto;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: inherit;
+}
+
+button {
+  border-radius: 0;
+}
+
+  

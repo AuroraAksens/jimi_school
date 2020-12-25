@@ -1,0 +1,122 @@
+<!--pages/add-task/add-task.wxml-->
+<view class="task mt-10 pb-30">
+	<view class="head d-fx jc-betweem">
+		<view class="{{sta == 0 ? 'tabs' : 'tab'}}" bindtap="selectExpress">取快递</view>
+		<view class="{{sta == 1 ? 'tabs' : 'tab'}}" bindtap="selectOther">其他任务</view>
+	</view>
+
+	<!-- 下单 -->
+	<view class="body">
+
+		<view class="item-box">
+			<view>姓名</view>
+			<!-- data-value="{{userInfo.name}}" value="{{userInfo.name}}" -->
+			<input style="text-align: right;" name="name"  bindinput="getName" placeholder="请输入真实姓名" />
+		</view>
+
+		<view class="item-box">
+			<view>电话</view>
+			<input style="text-align: right;" name="phone" data-value="{{userInfo.phone}}" value="{{userInfo.phone}}" bindinput="getPhone" placeholder="请输入电话" />
+		</view>
+
+		<view wx:if="{{inp == 0}}" class="item-box">
+			<view>快递件数</view>
+			<input disabled="true" style="text-align: right;" name="number" value="{{addExpress.length}}" />
+		</view>
+
+		<form catchsubmit="addExpress" wx:for="{{inp == 0 ? addExpress : addOther}}" data-index="{{index}}" wx:key="index">
+			<view class="item-text">
+				<view wx:if="{{inp == 0}}" class="item-cont">
+					<view>取件地区</view>
+					<input value="{{item.access_place}}" data-index="{{index}}" bindinput="getTakePlace" name="access_place" style="text-align: right;" placeholder="请输入文字" />
+					<!-- <input wx:else name="takePlace" value="{{item.access_place}}" style="text-align: right;" placeholder="请输入文字" /> -->
+				</view>
+
+				<view wx:if="{{inp == 0}}" class="item-cont">
+					<view>送达地点</view>
+					<input data-index="{{index}}" value="{{item.service_place}}" bindinput="getPlace" name="service_place" style="text-align: right;" placeholder="请输入文字" />
+					<!-- <input wx:else name="goPlace" value="{{item.service_place}}" style="text-align: right;" placeholder="请输入文字" /> -->
+				</view>
+
+				<view class="mt-30" wx:if="{{inp == 0}}">取件信息</view>
+				<view wx:if="{{inp == 1}}">任务描述</view>
+
+				<textarea class="text" wx:if="{{inp == 0}}" data-index="{{index}}" value="{{item.message}}" bindinput="getTakeMessage" name="message" maxlength="140" auto-height placeholder="该信息仅自己和接单人可见，请准确填写取件码' : '请输入相关任务详情。。。(限定140个字节)" />
+
+				<view class="d-fx jc-start flex-w" wx:if="{{inp == 0}}">
+				<block wx:for="{{item.images}}" wx:for-index="childindex" wx:key="index">
+					<view class="imageArr mb-20 mr-20">
+							<image src="{{src}}{{item}}" style="width: 136rpx;height: 145rpx;" data-src="{{item}}" data-index="index" bindtap="messImg" class="mr-20"></image>
+						<view data-index="{{index}}" data-childindex="{{childindex}}" bindtap="deleteImages" class="delete">
+							<image src="/images/icon/deleteimg.png"></image>
+						</view>
+					</view>
+				</block>
+				<image src="/images/icon/tianjia.png" style="width: 136rpx;height: 145rpx;" class="mb-20" wx:if="{{imgArr.length < 3}}" data-index="{{index}}" bindtap="postImg"></image>
+				</view>
+
+				<!-- 其他 -->
+				<textarea class="text" wx:if="{{inp == 1}}" name="otherMessage" bindinput="getOtherMessage" maxlength="140" auto-height placeholder="请描述一下任务的具体内容。(限定140个字节)" />
+				
+				<view class="d-fx jc-start flex-w" wx:if="{{inp == 1}}">
+				<block wx:for="{{imgArr}}" wx:key="index">
+					<view class="imageArr mr-20">
+							<image src="{{item}}" style="width: 136rpx;height: 145rpx;" data-src="{{item}}" bindtap="messImg" class="mr-20"></image>
+						<view data-index="{{index}}" bindtap="deleteImage" class="delete">
+							<image src="/images/icon/deleteimg.png"></image>
+						</view>
+					</view>
+				</block>
+				<image src="/images/icon/tianjia.png" style="width: 136rpx;height: 145rpx;" wx:if="{{imgArr.length < 9}}" bindtap="postImgs"></image>
+				</view>
+
+				<!-- 其他结束 -->
+
+				<view class="text-right">
+
+				<!-- 删除按钮 -->
+        <view wx:if="{{addExpress.length > 1}}" hidden="{{inp == 1}}" class="buttom-del" data-index="{{index}}" bindtap="deleteExpress">删除快递</view>
+
+				<!-- 添加按钮 -->
+				<block wx:if="{{inp == 0}}">
+				<button wx:if="{{(addExpressLength == index + 1)?true:false}}"  class="buttom" formType="submit">添加快递</button>
+				</block>
+
+				<!-- img -->
+				</view>
+      </view>
+
+			</form>
+
+    </view>
+
+		<!-- <view class="item-text" wx:if="{{inp == 1}}">
+			<view>任务要求</view>	
+			<textarea class="text" name="otherMessage" bindinput="getOtherMessage" maxlength="140" auto-height placeholder="请填写任务要求" />
+		</view> -->
+
+		<view class="item-box">
+			<view>备注</view>
+			<input style="text-align: right;" name="remarks" bindinput="getRemarks" placeholder="填写备注信息" />
+		</view>
+
+
+    <view class="item-money">
+      <view class="left d-fx ai-center">
+        <view style="font-size: 36rpx;">赏金</view>
+      </view>
+      <view class="right d-fx ai-center mr-10">
+			<input style="text-align: right" class="mr-10" type="number" name="money" bindinput="getMoney" placeholder="最低三元起" maxlength="10" />元
+      </view>
+    </view>
+
+
+		<view class="foot mt-20 mb-30">
+  	  <button class="but" wx:if="{{inp == 0 && userMoney >= itemMoney}}" bindtap="{{type ? 'postTask' : 'checkLogin'}}">下单</button>
+  	  <button class="but" wx:if="{{inp == 1 && userMoney >= itemMoney}}" bindtap="{{type ? 'postOther' : 'checkLogin'}}">下单</button> 
+  	  <button class="buts" wx:if="{{userMoney < itemMoney}}" bindtap="limit">下单</button>
+  	</view>
+<!-- 下单结束 -->
+
+
+</view>

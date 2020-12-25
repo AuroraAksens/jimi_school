@@ -1,0 +1,72 @@
+/* pages/message/message.wxss */
+page{
+  background-color: white;
+}
+
+.message{
+  text-align: center;
+  font-size: 23rpx;
+  color: #888888;
+}
+
+.message-box{
+  width: 100%;
+  overflow: hidden;
+}
+.message-box>.left{
+  width: 15%;
+}
+.message-box>.left>image{
+  width: 115rpx;
+  height: 115rpx;
+  border-radius: 50%;
+}
+
+.message-box>.content{
+  width:65%;
+}
+.message-box>.content>.head{
+  width: 100%;
+}
+.message-box>.content>.head>.title-left{
+  font-size: 32rpx;
+  color: #F4AE3B;
+}
+.message-box>.content>.head>.title-right{
+  font-size: 32rpx;
+  color: #000000;
+}
+.message-box>.content>.body{
+  font-size: 26rpx;
+}
+.message-box>.content>.foot{
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.message-box>.right{
+  width: 160rpx;
+  min-height: 160rpx;
+  border: 1px solid #F2F2F2;
+  font-size: 22rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+}
+
+.message-box>.rights{
+  width: 160rpx;
+  border: 1px solid #F2F2F2;
+}
+
+.border{
+  width: 90%;
+  height: 1rpx;
+  background-color: #707070;
+  opacity:0.26;
+  margin: 10rpx auto 10rpx auto;
+  z-index: 100;
+  margin-bottom: 20rpx;
+}

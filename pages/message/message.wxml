@@ -1,0 +1,43 @@
+
+<!-- 暂无消息 -->
+<view class="message mt-30" wx:if="{{listData == ''}}">
+  暂无消息
+</view>
+<!-- 暂无消息结束 -->
+
+<view class="mt-30"></view>
+
+<!-- 消息 -->
+<block wx:for="{{listData}}" wx:key="index" wx:if="{{listData != ''}}">
+<view class="message-box mb-20 d-fx jc-around ai-start" data-id="{{item.item_id}}" data-status="{{item.status}}" bindtap="gotoMessage">
+  <view class="left px-20 py-20">
+    <image src="{{item.user.image}}"></image>
+  </view>
+  <view class="content">
+    <view class="head py-10 d-fx jc-start">
+      <view class="title-left">
+        {{item.user.name}}
+      </view>
+      <view class=" ml-20 title-right" wx:if="{{item.type == 0}}">
+        评论了你
+      </view>
+      <view class=" ml-20 title-right" wx:else>
+        回复了你
+      </view>
+    </view>
+    <view class="body py-10">
+      {{item.content}}
+    </view>
+    <image src="{{item.image}}" wx:if="{{item.image != null}}" style="width:100rpx;height:100rpx" class="my-10"></image>
+    <view class="foot py-10">
+      {{item.create_time}}
+    </view>
+  </view>
+  <view class="{{item.item_title ? 'right' : 'rights'}} px-10 mx-10">
+    {{item.item_title}}
+  </view>
+</view>
+<view class="border"></view>
+</block>
+<!-- 消息结束 -->
+

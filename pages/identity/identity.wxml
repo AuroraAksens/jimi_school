@@ -1,0 +1,20 @@
+<!--pages/identity/identity.wxml-->
+<view class="ide">
+  <view class="ide-box d-fx jc-center ai-center flex-cl">
+    <image wx:if="{{imageData1 == ''}}" src="/images/photograph.png" bindtap="chooseImg"></image>
+    <image class="bou-20" wx:else src="{{imageData1}}" bindtap="chooseImg"></image>
+    <view class="mt-30">
+      请选择清晰证件照片身份证/学生证/学生卡（正面）
+    </view>
+  </view>
+  <view class="ide-box d-fx jc-center ai-center flex-cl">
+    <image wx:if="{{imageDatas2 == ''}}" src="/images/photograph.png" bindtap="chooseImgs"></image>
+    <image class="bou-20" wx:else src="{{imageDatas2}}" bindtap="chooseImgs"></image>
+    <view class="mt-30">
+      请选择清晰证件照片身份证/学生证/学生卡（反面）
+    </view>
+  </view>
+
+  <button wx:if="{{imageData1 == '' || imageDatas2 == ''}}" class="btn mt-30">提交</button>
+  <button wx:else class="btns mt-30" bindtap="addIdCard">提交</button>
+</view>

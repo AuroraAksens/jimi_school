@@ -1,0 +1,68 @@
+/* pages/become/become.wxss */
+
+/* head */
+.head{
+  width: 100%;
+  height: 45rpx;
+  background-color: rgba(253,174,60,0.2);
+  color: #FDAE3C;
+  font-size: 20rpx;
+}
+.head>image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/* body */
+.body{
+  width: 100%;
+  height: 650rpx;
+}
+.body>.text{
+  width: 90%;
+  height: 400rpx;
+}
+.body>.text>.title1{
+  font-size: 48rpx;
+  font-weight: 550;
+}
+.body>.text>.title2{
+  font-size: 26rpx;
+  font-weight: 600;
+}
+.body>.text>.title3{
+  font-size: 22rpx;
+  color:#888888;
+}
+.body>.text>.title3>image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.body>.img{
+  width: 700rpx;
+  height: 300rpx;
+  position: relative;
+}
+.body>.img>.text{
+  width: 80%;
+  position: absolute;
+  top: 110rpx;
+  left: 90rpx;
+}
+.body>.img>image{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* foot */
+.foot{
+  width: 100%;
+  height: 100rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #888888;
+  position: absolute;
+  bottom: 0;
+}

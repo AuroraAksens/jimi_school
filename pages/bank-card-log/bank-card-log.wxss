@@ -1,0 +1,50 @@
+/* pages/bank-card-log/bank-card-log.wxss */
+page{
+  background-color: #FFFFFF;
+}
+.h-title{
+  width: 100%;
+  height: 80rpx;
+  background-color: white;
+  color: #969696;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-top: 1px solid #e0e0e0;
+}
+
+.active{
+  color: #F4AE3B;
+  position: relative;
+}
+.bot{
+  width: 36rpx;
+  height: 5rpx;
+  background:rgba(244,174,59,1);
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+}
+
+/* 记录块 */
+.logBox{
+  width: 90%;
+  margin: 40rpx;
+  background-color: white;
+  box-shadow:0px 10px 18px rgba(198,198,198,0.3);
+  border: 1px solid #f7f7f7;
+}
+.logBox>.top{
+  width: 90%;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.logBox>.body{
+  width: 90%;
+  font-size: 30rpx;
+  color: #7B7B7B;
+}
+.logBox>.foot{
+  width: 90%;
+  font-size: 30rpx;
+  color: #7B7B7B;
+}

@@ -1,0 +1,268 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 16rpx;
+  right: 16rpx;
+  height: 130rpx;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10rpx;
+  box-shadow: 6rpx 6rpx 10rpx rgb(0, 0, 0, 0.2);
+}
+
+.tab-bar-add {
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 40rpx;
+  background-color: #FDAE3C;
+  border-radius: 100rpx;
+  border: 12rpx solid #EEEEEE;
+  z-index: 100;
+}
+
+
+.tab-bar-item {
+  width: 200rpx;
+  text-align: center;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tab-bar-item image {
+  width: 50rpx;
+  height: 54rpx;
+}
+
+.tab-bar-item view {
+  font-size: 28rpx;
+}
+
+.dynamicBox {
+  width: 100%;
+  height: 3000rpx;
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  background-color: rgba(153, 153, 153, 0.45);
+}
+
+.dynamicSelect {
+  width: 100%;
+  height: 500rpx;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  z-index: 200;
+  border-radius: 50px 50px 0px 0px;
+}
+
+.dynamicSelect>.head {
+  width: 80%;
+  height: 230rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50rpx auto;
+}
+
+.dynamicSelect>.head>.box {
+  width: 70rpx;
+  height: 160rpx;
+  line-height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  text-align: center;
+}
+
+.dynamicSelect>.body {
+  width: 100%;
+  height: 250rpx;
+}
+
+.dynamicSelect>.body>image {
+  width: 120rpx;
+  height: 120rpx;
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 40rpx;
+  background-color: #FDAE3C;
+  border-radius: 100rpx;
+  border: 12rpx solid #EEEEEE;
+}
+
+.popUp {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+}
+
+.popUp>.popUp-box {
+  width: 500rpx;
+  height: 540rpx;
+  background-color: white;
+  margin: 400rpx auto;
+  border-radius: 30rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.popUp>.popUp-box>image {
+  width: 100%;
+  height: 210rpx;
+  position: absolute;
+  top: 0;
+  z-index: 110;
+}
+
+.popUp>.popUp-box>.popText {
+  width: 70%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 130rpx;
+  margin: auto;
+  font-size: 25rpx;
+  color: #999999;
+}
+
+.popUp>.popUp-box>.popBut {
+  width: 200rpx !important;
+  height: 60rpx !important;
+  line-height: 60rpx !important;
+  background-color: #FDAE3C;
+  text-align: center;
+  color: white;
+  position: absolute;
+  left: 245rpx;
+  right: 0;
+  bottom: 30rpx;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+}
+
+.popUp>.popUp-box>.popButs {
+  width: 200rpx !important;
+  height: 60rpx !important;
+  line-height: 60rpx !important;
+  background-color: #e6e6e6;
+  text-align: center;
+  color: rgb(46, 46, 46);
+  position: absolute;
+  left: 0;
+  right: 245rpx;
+  bottom: 30rpx;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+}
+
+
+
+.guide {
+  width: 100%;
+  height: 100vh;
+  z-index: 200;
+  position: absolute;
+  top: 0;
+}
+
+.guide>image {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+.but {
+  width: 150rpx;
+  height: 80rpx;
+  border: 14rpx solid white;
+  border-radius: 100rpx;
+  text-align: center;
+  line-height: 80rpx;
+  position: absolute;
+  bottom: 260rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: white;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+
+/* 用户协议 */
+.agreement {
+  width: 50%;
+  position: absolute;
+  bottom: 150rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 28rpx;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cb{
+  transform: scale(0.8,0.8);
+}
+.cbt{
+  border-bottom: 1rpx solid;
+}
+
+
+.agreementView{
+  width: 85%;
+  height: 85vh;
+  border-radius: 20rpx;
+  background-color: white;
+  position: absolute;
+  top: 70rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.agreementView>.top{
+  width: 100%;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 120rpx;
+  font-weight: bold;
+}
+
+.agreementView>.body{
+  width: 90%;
+  height: 800rpx;
+  font-size: 28rpx;
+  margin: auto;
+  line-height: 50rpx;
+}
+.agreementView>.bottom{
+  width: 100%;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 120rpx;
+  font-weight: bold;
+  color: #FDAE3C;
+  border-top: 1rpx solid rgb(172, 172, 172);
+}

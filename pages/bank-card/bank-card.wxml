@@ -1,0 +1,34 @@
+<view class="image" wx:if="{{!bankListLength}}">
+	<image src="/images/icon/cardbind.png"></image>
+</view>
+
+<block wx:for="{{bankList}}" wx:key="index" wx:if="{{bankListLength}}">
+	<view class="bankCard bou-20 mb-30 d-fx jc-between" bindtap="selectBank" data-index="{{index}}" data-bankid="{{item.id}}" data-bankname="{{item.bank_name}}">
+		<image src="/images/icon/bankCard.png">
+			<image wx:if="{{sta == 1}}" data-bankid="{{item.id}}" bindtap="closeCard" class="trash2" src="/images/icon/Trash2.png"></image>
+		</image>
+		<view class="box">
+			<view class="top d-fx ai-center">
+				<image src="/images/icon/bankIcon.png" class="mr-30"></image>
+				{{item.bank_name}}
+			</view>
+			<view class="foot">
+				{{passCard}}
+			</view>
+		</view>
+		<view class="select d-fx jc-start ai-center" wx:if="{{sta == 0}}">
+			<image wx:if="{{status == index}}" src="/images/icon/bankselect.png"></image>
+			<image wx:else src="/images/icon/bankselects.png"></image>
+		</view>
+	</view>
+</block>
+
+<view class="{{bankID != '' ? 'cardButtom' : 'cardButtoms'}} d-fx jc-center ai-center bou-20" bindtap="{{bankID != '' ? 'getoTake' : ''}}" wx:if="{{sta == 0}}">
+	{{bankID != '' ? '确认' : '请选择要提现到账的银行卡'}}
+</view>
+
+<view class="cardButtom d-fx jc-center ai-center bou-20" wx:if="{{sta == 1 && bankList.length < 3}}" bindtap="addBankCard">
+	<image src="/images/icon/addBankCard.png" class="mr-20" style="width:30rpx;height:30rpx"></image>添加银行卡
+</view>
+
+<view class="tips">最多只能添加3张银行卡 如需更换请联系客服</view>

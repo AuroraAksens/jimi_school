@@ -1,0 +1,83 @@
+/* pages/bank-card/bank-card.wxss */
+.image{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 200rpx auto;
+}
+.image>image{
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.bankCard{
+  width: 90%;
+  height: 230rpx;
+  margin: 40rpx auto;
+  position: relative;
+  color: white;
+}
+.bankCard>image{
+  width: 100%;
+  height: 100%;
+}
+.bankCard>.box{
+  width: 500rpx;
+  height: 210rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 40rpx;
+}
+.bankCard>.box>.top{
+  width: 500rpx;
+  height: 80rpx;
+}
+.bankCard>.box>.top>image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.bankCard>.box>.foot{
+  width: 500rpx;
+  margin-top: 60rpx;
+  font-size: 36rpx;
+}
+.bankCard>.select{
+  width: 100rpx;
+  height: 210rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 0;
+}
+.bankCard>.select>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.cardButtom{
+  width: 90%;
+  height: 100rpx;
+  background-color: #FDAE3C;
+  margin: 40rpx auto;
+}
+
+.cardButtoms{
+  width: 90%;
+  height: 100rpx;
+  background-color: #cecece;
+  margin: 40rpx auto;
+}
+
+.tips{
+  width: 500rpx;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 40rpx auto;
+  color: rgb(145, 145, 145);
+}
+
+.trash2{
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}

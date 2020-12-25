@@ -1,0 +1,29 @@
+<!--pages/school/school.wxml-->
+<!-- <view class="search">
+	<input class="search-inp py-10 bou-15" placeholder-class="tip" maxlength="20" placeholder="搜索" />
+</view> -->
+
+<view class="search-text bou-20">
+
+	<!-- 选择省份 -->
+	<view class="title py-30 pl-30" wx:if="{{status ==0}}">
+		选择学校所在地
+	</view>
+	<view class="body pb-30 d-fx jc-start flex-w" wx:if="{{status ==0}}">
+			<view class="box px-30 my-10 mx-10 bou-15" wx:if="{{personal == 1}}" data-id="0" data-schoolName="全部学校" bindtap="goback">全部学校</view>
+		<block wx:for="{{city}}" wx:key="index">
+			<view class="box px-30 my-10 mx-10 bou-15" data-id="{{item.id}}" bindtap="cityId">{{item.name}}</view>
+		</block>
+	</view>
+
+	<!-- 选择学校 -->
+	 <view class="title py-30 pl-30" wx:if="{{status ==1}}">
+		重新选择学校所在地
+	</view>
+	<view class="schoolBody pl-20 ml-10" wx:if="{{status ==1}}">
+		<block wx:for="{{school}}" wx:key="index">
+			<view class="bodyText pl-10 pt-20 mb-20" data-id="{{item.id}}" data-schoolName="{{item.name}}" bindtap="schoolId">{{item.name}}</view>
+		</block>
+	</view>
+
+</view>

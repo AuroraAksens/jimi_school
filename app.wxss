@@ -1,0 +1,462 @@
+/**app.wxss**/
+page {
+  background-color: #EEEEEE;
+  box-sizing: border-box;
+}
+
+/* 引入全局工具类样式 */
+@import 'common/style.wxss';
+
+
+/* 导航条 */
+.nav {
+  width: 100%;
+  height: 60rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav>.nav-tabbar {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+.nav>.school {
+  width: 35%;
+  text-align: right;
+}
+
+.nav>.school>.schoolImg>image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.nav>.nav-tabbar>.nav-tabbar-card {
+  width: 100rpx;
+  height: 100%;
+  line-height: 50rpx;
+  text-align: center;
+  color: #989898;
+  position: relative;
+}
+
+.nav>.nav-tabbar>.nav-tabbar-cards {
+  width: 100rpx;
+  height: 100%;
+  text-align: center;
+  color: #000000;
+  position: relative;
+  font-weight: 600;
+  font-size: 36rpx;
+}
+
+.nav>.nav-tabbar>.nav-tabbar-cards>.m-bottom {
+  width: 90rpx;
+  height: 20rpx;
+  border-radius: 25rpx;
+  background-color: #FDAE3C;
+  position: absolute;
+  bottom: 6rpx;
+  left: 6rpx;
+  z-index: -1;
+}
+
+/* 导航条结束 */
+
+
+/* swiper */
+.m-swiper {
+  width: 100%;
+  height: 300rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.m-swiper>.m-swiper-page {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.m-swiper>.m-swiper-page>.m-swiper-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.m-swiper-item>image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 指示点的样式 */
+.swiper .wx-swiper-dot {
+  width: 15rpx;
+  height: 15rpx;
+  background: gray;
+  border-radius: 15rpx;
+}
+
+.swiper .wx-swiper-dot.wx-swiper-dot-active {
+  width: 30rpx;
+  height: 15rpx;
+  background: white;
+  border-radius: 15rpx;
+}
+
+/* swiper结束 */
+
+
+/* m-card */
+.m-card {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.m-card>.head {
+  width: 100%;
+  position: relative;
+}
+
+.m-card>.head>.img {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 100rpx;
+  overflow: hidden;
+}
+
+.m-card>.head>.img>image {
+  width: 100%;
+  height: 100%;
+}
+
+.m-card>.head>.img>.vip {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  bottom: 33rpx;
+  left: 100rpx;
+}
+
+.m-card>.head>.title {
+  width: 500rpx;
+  height: 100rpx;
+}
+
+.m-card>.head>.title>.title-name {
+  width: 100%;
+  height: 50rpx;
+  font-size: 36rpx;
+}
+
+.m-card>.head>.title>.title-bottom {
+  width: 100%;
+  height: 50rpx;
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.m-card>.head>.title>.title-bottom>view {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Gender {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.official {
+  width: 60rpx;
+  height: 30rpx;
+}
+
+/* 新发布 */
+.m-card>.head>.status-new {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #60D078;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 已接单 */
+.m-card>.head>.status-conduct {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #FDAE3C;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 售卖中 */
+.m-card>.head>.status-selling {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #D911C5;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 待结算 */
+.m-card>.head>.status-settlement {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #D911C5;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 已取消 */
+.m-card>.head>.status-ancel {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #c4c4c4;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 已结算 */
+.m-card>.head>.status-sell {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #c4c4c4;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 动态 */
+.m-card>.head>.status-dynamic {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #00C9FF;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+/* 交易 */
+.m-card>.head>.status-transaction {
+  width: 100rpx;
+  height: 50rpx;
+  background-color: #FD3C3C;
+  color: white;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-right: 17rpx;
+}
+
+.m-card>.body {
+  width: 100%;
+}
+
+.m-card>.body>.img {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.m-card>.body>.img>image {
+  width: 140rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+.m-card>.body>.task {
+  width: 590rpx;
+  background-color: #FCEFDB;
+}
+
+.m-card>.body>.task>.head {
+  font-weight: 600;
+  font-size: 35rpx;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.m-card>.body>.task>.head {
+  font-weight: 600;
+  font-size: 35rpx;
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.m-card>.body>.task>.content {
+  font-size: 25rpx;
+  width: 80%;
+  margin: auto;
+}
+
+.m-card>.body>.task>.content>.remarks {
+  width: 100%;
+  /* padding-left: 68rpx; */
+  font-size: 21rpx;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1; */
+}
+
+
+.m-card>.foot {
+  width: 100%;
+}
+
+.m-card>.foot>.goods {
+  width: 330rpx;
+}
+
+.m-card>.foot>.goods>.box>image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.m-card>.foot>.goods>.box>button>image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.m-card>.foot>.goods>.box>button>.share-img {
+  transform: rotate(-90deg);
+}
+
+/* m-card结束 */
+
+
+/* 我的页面选项栏 */
+.option {
+  width: 100%;
+}
+
+.option>.body {
+  width: 95%;
+  /* height: 100rpx; */
+  border-bottom: 1px solid #E6E6E6;
+}
+
+.option>.body>image {
+  width: 55rpx;
+  height: 55rpx;
+  padding-left: 8rpx;
+}
+
+
+/* 表单组件 */
+.item-box {
+  width: 94%;
+  margin-top: 20rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+
+.item-text {
+  width: 94%;
+  margin-top: 20rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+  line-height: 80rpx;
+}
+
+.item-text>.text {
+  width: 590rpx;
+  min-height: 150rpx;
+  margin: 20rpx 0 20rpx 0;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  background-color: #FAFAFA;
+  border-radius: 15rpx;
+  font-size: 25rpx;
+  line-height: 25rpx;
+}
+
+.item-text>.item-cont {
+  width: 94%;
+  margin-top: 20rpx;
+  background-color: white;
+  border-radius: 15rpx 15rpx 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.item-text>.text-right {
+  width: 100%;
+  height: 65rpx;
+  margin: auto;
+  position: relative;
+}
+
+.item-text>.text-right>.buttom-del {
+  width: 180rpx;
+  height: 65rpx;
+  background-color: rgb(253, 82, 60);
+  color: white;
+  border-radius: 50rpx;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 65rpx;
+  position: absolute;
+  right: 0;
+}
+
+.item-money {
+  width: 94%;
+  margin-top: 20rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  padding: 20rpx 20rpx 20rpx 25rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.item-money>.right {
+  width: 300rpx;
+  height: 80rpx;
+}

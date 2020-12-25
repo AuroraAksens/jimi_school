@@ -1,0 +1,38 @@
+button::after {
+  border: none;
+}
+
+button {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: inherit;
+  color: #646C74;
+}
+
+.button-hover {
+  background-color: transparent;
+}
+
+.buttom {
+  width: 90%;
+  height: 120rpx;
+  background-color: #FDAE3C;
+  color: #000000;
+  position: fixed;
+  bottom: 20rpx;
+  left: 38rpx;
+}
+
+.buttom>.body {
+  width: 400rpx;
+  height: 100rpx;
+  margin: 10rpx auto;
+  font-weight: 600;
+  font-size: 39rpx;
+}
+
+.buttom>.body>button>image{
+  width: 73rpx;
+  height: 73rpx;
+}

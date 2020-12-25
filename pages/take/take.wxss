@@ -1,0 +1,53 @@
+/* pages/take/take.wxss */
+.take{
+  width: 100%;
+  /* height: 665rpx; */
+  padding-bottom: 60rpx;
+  background-color: white;
+}
+.take>.head{
+  width: 85%;
+  margin: auto;
+}
+.take>.head>.head-top{
+  width: 80%;
+  font-size: 29rpx;
+  font-weight: 500;
+}
+.take>.head>.head-center{
+  width: 80%;
+}
+.take>.head>.head-center>image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+}
+.take>.body{
+  width: 85%;
+  margin: 30rpx auto;
+  font-size: 64rpx;
+  border-bottom: 1rpx solid #707070;
+}
+.take>.body>.inp{
+  width: 80%;
+  height: 100%;
+}
+
+.take>.foot{
+  width: 85%;
+  margin: 30rpx auto;
+}
+.take>.foot>.foot-top{
+  font-size: 29rpx;
+}
+.take>.foot>.foot-center{
+  width: 100%;
+  margin: 50rpx auto;
+}
+.take>.foot>.foot-center>button{
+  width: 100%;
+  height: 75rpx;
+  border-radius: 20rpx;
+  background-color: #FDAE3C;
+  line-height: 45rpx;
+}

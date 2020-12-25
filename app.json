@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/my/my",
+    "pages/details/details",
+    "pages/task/task",
+    "pages/personal/personal",
+    "pages/become/become",
+    "pages/message/message",
+    "pages/money/money",
+    "pages/help/help",
+    "pages/dynamic/dynamic",
+    "pages/add-task/add-task",
+    "pages/my-details/my-details",
+    "pages/my-details-text/my-details-text",
+    "pages/identity/identity",
+    "pages/take/take",
+    "pages/order/order",
+    "pages/school/school",
+    "pages/impression/impression",
+    "pages/personal-data/personal-data",
+    "pages/bank-card/bank-card",
+    "pages/my-task/my-task",
+    "pages/add-bank-card/add-bank-card",
+    "pages/bank-card-log/bank-card-log",
+    "pages/userDetails/userDetails"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#FFFFFF",
+    "navigationBarBackgroundColor": "#EEEEEE",
+    "navigationBarTitleText": "吉米",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "组件"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "接口"
+      }
+    ]
+  },
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "loading": "/common/loading/loading"
+  }
+}

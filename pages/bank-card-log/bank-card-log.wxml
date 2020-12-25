@@ -1,0 +1,31 @@
+<!--pages/bank-card-log/bank-card-log.wxml-->
+<view class="h-title d-fx jc-around" style="overflow: hidden">
+	<block wx:for="{{title}}" wx:key="index">
+		<view class="{{sta == item.index ? 'active' : ''}}" data-index="{{item.index}}" bindtap="selectTitle">
+			{{item.name}}
+			<i class="{{sta == item.index ? 'bot' : ''}}"></i>
+		</view>
+	</block>
+</view>
+
+<block wx:for="{{taskData}}" wx:key="index">
+	<view class="logBox py-20 bou-15">
+		<view class="top d-fx jc-between ai-center px-30">
+			<view>申请提现</view>
+			<view style="font-size: 44rpx;color:#FDAE3C">{{item.price}}</view>
+		</view>
+		<view class="body py-20 d-fx jc-between px-30 "> 
+			<view>申请时间</view>
+			<view>{{item.create_time}}</view>
+		</view>
+		<view class="foot d-fx jc-between px-30" wx:if="{{item.status != 3}}">
+			<view>申请状态</view>
+			<view wx:if="{{item.status == 1}}" style="color:#EB4A42">审核中</view>
+			<view wx:if="{{item.status == 2}}"  style="color:rgb(87, 196, 105)">审核成功 已提现</view>
+		</view>
+		<view class="foot d-fx jc-between px-30" wx:if="{{item.status == 3}}">
+			<view>失败原因</view> 
+			<view style="color:#EB4A42">{{item.reason}}</view>
+		</view>
+	</view>
+</block>

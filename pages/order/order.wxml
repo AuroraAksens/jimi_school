@@ -1,0 +1,104 @@
+<!--pages/order/order.wxml-->
+
+<view class="order">
+
+	<!-- 名片 -->
+	<view class="head bou-15">
+		<image src="/images/card.png"></image>
+		<view class="text">
+			<view class="py-20">{{listData.userName}}</view>
+			<view class="d-fx ai-center" style="font-size: 27rpx;">
+				<image src="/images/icon/phone.png" style="width: 33rpx;height: 33rpx;padding-right:10rpx"></image>
+				{{listData.userPhone}}
+			</view>
+		</view>
+	</view>
+	<!-- 名片结束 -->
+
+	<!-- 任务信息 -->
+	<view class="body bou-15 mt-30 py-30">
+
+		<view class="head ml-30 pl-20" wx:if="{{listData.listId == 1}}">
+			任务信息
+			<view class="act mt-10"></view>
+		</view>
+
+		<view class="content ml-30 pl-20 my-20" wx:if="{{listData.listId == 1}}">
+			<view class="text my-20">{{listData.userOtherMessage}}</view>
+			<block wx:for="{{listData.imgArr}}" wx:key="index">
+				<image class="pr-10 mr-20 mb-20 bou-15" src="{{item}}"></image>
+			</block>
+		</view>
+
+		<view class="head ml-30 pl-20" wx:if="{{listData.listId == 0}}">
+			快递信息
+			<view class="act mt-10"></view>
+		</view>
+
+		<block wx:for="{{listData.userExpress}}" wx:key="index" wx:if="{{listData.listId == 0}}">
+			<view class="content ml-30 pl-20 my-20">
+				<view class="conBox d-fx jc-start py-10">
+					<view style="width:380rpx;height:40rpx">取件地点</view>
+					<view class="ml-30" style="width:380rpx;height: auto;">{{item.access_place}}</view>
+				</view>
+				<view class="conBox d-fx jc-start py-10">
+					<view style="width:380rpx;height:40rpx">送达地点</view>
+					<view class="ml-30" style="width:380rpx;height: auto;">{{item.service_place}}</view>
+				</view>
+				<view class="conBox d-fx jc-start py-10 pb-30">
+					<view style="width:380rpx;height:40rpx">取件信息</view>
+					<view class="ml-30" style="width:380rpx;height: auto;">{{item.message}}</view>
+				</view>
+				<view class="conBox d-fx jc-start py-10 pb-30">
+					<view style="width:380rpx;height:40rpx">取件图片</view>
+					<view class="ml-30 d-fx jc-start flex-w" style="width:380rpx;height: auto;">
+						<block wx:for="{{item.images}}" wx:key="index">
+							<image class="mr-10 bou-15" style="width:80rpx;height: 80rpx" src="{{src}}{{item}}"></image>
+						</block>
+					</view>
+				</view>
+			</view>
+		</block>
+
+		<view class="content ml-30 pl-20 my-20" wx:if="{{listData.listId == 0}}">
+			<block wx:for="{{listData.imgArr}}" wx:key="index">
+				<image class="pr-10 mr-20 mb-20 bou-15" src="{{item}}"></image>
+			</block>
+		</view>
+
+		<view class="foot ml-30 pl-20">
+			<view class="my-20 d-fx jc-between">
+				<view>备注</view>
+				<view style="color:#F54B4B">{{listData.userRemarks}}</view>
+			</view>
+		</view>
+
+		<view class="foot ml-30 pl-20">
+			<view class="my-20 d-fx jc-between">
+				<view>赏金</view>
+				<view style="color:#F54B4B">￥{{listData.userMoney}}</view>
+			</view>
+			<!-- <view class="d-fx jc-between">
+				<view>优惠券</view>
+				<view style="color:#A7A7A7">
+					无可用优惠券
+					<image style="width: 20rpx;height: 20rpx;" src="/images/icon/gotoDiscount.png"></image>
+				</view>
+			</view> -->
+		</view>
+
+	</view>
+</view>
+<!-- 任务信息结束 -->
+
+<!-- 底部 -->
+<view id="foot" class="d-fx jc-between">
+	<view class="left ml-30 pl-20 d-fx ai-center jc-start">
+		<view style="font-size:36rpx;">￥{{listData.userMoney}}</view>
+		<!-- <view style="height:50rpx;">|</view>
+		<view>暂无优惠</view> -->
+	</view>
+	<view class="right" wx:if="{{listData.listId == 0}}" bindtap="posttmplIdsTask">确定支付</view>
+	<view class="right" wx:if="{{listData.listId == 1}}" bindtap="posttmplIdsOrder">确定支付</view>
+</view>
+<!-- 底部结束 -->

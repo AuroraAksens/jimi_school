@@ -1,0 +1,27 @@
+<!-- head -->
+<view class="head d-fx jc-center ai-center flex-cl">
+	<image src="{{userData.image}}" style="border-radius: 50%;"></image>
+	<view class="my-20">{{userData.name}}</view>
+	<view style="font-size:24rpx;color:rgba(153,153,153,1);">{{userData.school}}{{userData.grade}}级</view>
+</view>
+<!-- head结束 -->
+
+<!-- body -->
+<view class="body">
+	<view class="top">
+		<view style="font-size:36rpx;font-weight:600;">TA的印象</view>
+		<view style="font-size:23rpx;color:rgba(153,153,153,1);">最多添加3个印象</view>
+	</view>
+	<view class="content pb-30 d-fx jc-start flex-w">
+		<block wx:for="{{label}}" wx:key="index">
+			<view class="{{item.type ? 'boxs' : 'box'}} px-30 my-10 mr-20 bou-15" data-index="{{index}}" data-id="{{item.id}}" bindtap="showlabel">{{item.name}}</view>
+		</block>
+	</view>
+</view>
+<!-- body结束 -->
+
+<!-- foot -->
+<view class="foots bou-15" bindtap="postlabel">
+	提交
+</view>
+<!-- foot结束 -->

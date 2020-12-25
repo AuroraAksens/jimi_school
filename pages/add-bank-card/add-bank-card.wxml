@@ -1,0 +1,26 @@
+<!--pages/add-bank-card/add-bank-card.wxml-->
+<form catchsubmit="postBank">
+	<view class="addbank">
+		<view class="topTitle">绑定银行卡</view>
+
+		<view class="formBank d-fx jc-start ai-center mt-30">
+			<view class="title">持卡人</view>
+			<input class="inp" name="name" type="text" placeholder="请输入持卡人姓名" maxlength="12" />
+		</view>
+
+		<view class="formBank d-fx jc-start ai-center mt-30">
+			<view class="title">银行名称</view>
+			<input class="inp" name="bankName" type="text" placeholder="请输入银行名称" maxlength="30" />
+		</view>
+
+		<view class="formBank d-fx jc-start ai-center mt-30">
+			<view class="title">卡号</view>
+			<input class="inp" value='{{bankCard}}' bindinput='BankCardNoInput' type="number" placeholder="请输入卡号" />
+			<!-- <image src="/images/icon/close.png" style="width:45rpx;height:30rpx"></image> -->
+		</view>
+
+		<button class="cardButtom d-fx jc-center ai-center bou-20" formType="submit">
+			确认
+		</button>
+	</view>
+</form>

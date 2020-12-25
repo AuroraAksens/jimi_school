@@ -1,0 +1,35 @@
+
+<!-- head -->
+<view class="money-head pt-30">
+	<view class="img">
+		<image src="/images/money.png"></image>
+	</view>
+	<view class="text pt-30">
+		<view class="box d-fx flex-cl jc-between">
+			<view class="head d-fx ai-start jc-start flex-cl ml-30 mt-30">
+				<view>钱包余额</view>
+				<view style="font-size: 34rpx;">￥{{wallet}}</view>
+			</view>
+			<view class="foot d-fx jc-end">
+				<view class="right mr-30">
+					<view bindtap="goTake" class="buttom mt-30 ml-20 bou-25">提现到银行卡</view>
+					<!-- <view bindtap="goTakeweixin" class="buttom mt-30 ml-20 bou-25">微信提现</view> -->
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+<!-- head结束 -->
+
+
+<!-- body -->
+<view class="body d-fx jc-between flex-w">
+	<block wx:for="{{CardData}}" wx:key="index">
+		<view class="moneyBox mb-30 bou-15 d-fx jc-center ai-center" data-path="{{item.path}}" bindtap="gotoCard">
+			<image src="{{item.image}}"></image>
+			<view class="ml-30">{{item.title}}</view>
+		</view>
+	</block>
+</view>
+<!-- body结束 -->

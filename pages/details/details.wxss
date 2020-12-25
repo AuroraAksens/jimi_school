@@ -1,0 +1,456 @@
+/* pages/details/details.wxss */
+/* page{
+  background-color: white;
+} */
+.m-card>.body>.task {
+  width: 675rpx;
+  background-color: #FDFDF3;
+}
+
+.m-card>.head>.foot {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 50rpx;
+}
+
+.m-card>.head>.foot>image {
+  width: 100%;
+  height: 100%;
+}
+
+
+.m-card>.body>.task>.head {
+  font-weight: 600;
+  font-size: 30rpx;
+  border-bottom: 1px solid #EDEDE5;
+
+}
+
+.m-card>.body>.task>.content {
+  width: 90%;
+  font-size: 25rpx;
+}
+
+.m-card>.body>.task>.content>.length {
+  width: 100%;
+  font-size: 28rpx;
+  border-top: 1rpx solid #EDEDE5;
+  color: #6d6d6d;
+}
+
+.lengthBox {
+  width: 430rpx;
+}
+
+.content {
+  width: 90%;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+
+
+/* status */
+.status {
+  width: 100%;
+}
+
+.status>.title {
+  width: 90%;
+  height: 50rpx;
+}
+
+.status>.body {
+  width: 85%;
+  height: 150rpx;
+  position: relative;
+}
+
+.status>.body>.spot {
+  width: 42rpx;
+  height: 42rpx;
+  border: 8rpx solid #FEF5D4;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 20rpx;
+  left: 60rpx;
+  z-index: 3;
+}
+
+.status>.body>.spots {
+  width: 28rpx;
+  height: 28rpx;
+  border: 1rpx solid #e0e0e0;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 26rpx;
+  left: 60rpx;
+  z-index: 3;
+  background-color: white;
+}
+
+.status>.body>.spot>.m-spot {
+  width: 28rpx;
+  height: 28rpx;
+  border: 8rpx solid #F4AE3B;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.status>.body>.xian {
+  width: 130rpx;
+  height: 0;
+  border: 1rpx solid #e0e0e0;
+  position: absolute;
+  top: 39rpx;
+  left: 100rpx;
+}
+
+.status>.body>.xians {
+  width: 130rpx;
+  height: 0;
+  border: 1rpx solid #f7d297;
+  position: absolute;
+  top: 39rpx;
+  left: 100rpx;
+}
+
+
+.status>.body>.text {
+  width: 100%;
+  height: 50rpx;
+  position: absolute;
+  top: 80rpx;
+}
+
+.status>.body>.text>.m-text {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  color: #F4AE3B;
+  font-size: 27rpx;
+}
+
+.status>.body>.text>.m-texts {
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  color: #999999;
+  font-size: 27rpx;
+}
+
+.status>.buttom {
+  width: 225rpx;
+  height: 64rpx;
+  background-color: #F4AE3B;
+  text-align: center;
+  line-height: 65rpx;
+}
+
+/* 接单同学 */
+.status>.student {
+  width: 90%;
+}
+
+.status>.student>.title {
+  width: 100%;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.status>.student>.content {
+  width: 100%;
+}
+
+.status>.student>.content>.left {
+  width: 180rpx;
+}
+
+.status>.student>.content>.right {
+  width: 260rpx;
+}
+
+.status>.student>.foot {
+  width: 100%;
+  min-height: 267rpx;
+  background-color: #F4F4F4;
+  border-radius: 6rpx;
+}
+
+.status>.student>.foot>.left {
+  width: 75%;
+}
+
+.status>.student>.foot>.left>.top {
+  font-size: 30rpx;
+  min-height: 180rpx;
+}
+
+.status>.student>.foot>.left>.top>.box {
+  width: 100%;
+
+}
+
+.status>.student>.foot>.left>.top>.box>.minbox {
+  background-color: rgb(77, 77, 77);
+  color: white;
+  font-size: 22rpx;
+}
+
+.status>.student>.foot>.right {
+  width: 25%;
+}
+
+.navButtom {
+  width: 140rpx;
+  height: 60rpx;
+  box-shadow: 0px 0px 10px rgba(55, 55, 55, 0.16);
+  border-radius: 5px;
+  color: #EF4848;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background-color: white;
+  margin-bottom: 20rpx;
+}
+
+
+
+/* 评论 */
+.comment {
+  width: 100%;
+  padding-bottom: 450rpx;
+}
+
+.comment>.head {
+  width: 90%;
+  height: 100rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+
+.comment>.body {
+  height: 100rpx;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.comment>.comment-box {
+  width: 90%;
+
+}
+
+.comment>.comment-box>.head {
+  width: 18%;
+  position: relative;
+}
+
+.comment>.comment-box>.head>image {
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.comment>.comment-box>.head>.vip {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 68rpx;
+  right: 30rpx;
+}
+
+.comment>.comment-box>.body {
+  width: 80%;
+}
+
+.comment>.comment-box>.body>.tisc {
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.comment>.comment-box>.body>.text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 评论回复 */
+.comment>.comment-box>.body>.reply {
+  width: 100%;
+  background-color: #FAFAFA;
+}
+
+.comment>.comment-box>.body>.reply>.reply-con {
+  font-size: 26rpx;
+  color: #F4AE3B;
+}
+
+.comment>.comment-box>.body>.reply>.reply-box {
+  width: 100%;
+}
+
+.comment>.comment-box>.body>.reply>.reply-box>.reply-name {
+  font-size: 26rpx;
+  color: #F4AE3B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment>.comment-box>.body>.reply>.reply-box>.reply-text {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* 回复弹框 */
+.reply-total {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(153, 153, 153, 0.2);
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+}
+
+.total-box {
+  width: 100%;
+  height: 700rpx;
+  background-color: white;
+  position: fixed;
+  border-radius: 50rpx 50rpx 0 0;
+  bottom: 180rpx;
+  z-index: 5;
+}
+
+.total-box>.title {
+  width: 30%;
+  margin: 30rpx auto;
+  text-align: center;
+  line-height: 80rpx;
+  font-weight: 600;
+  font-size: 35rpx;
+}
+
+.total-box>.close {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 40rpx;
+}
+
+
+.comment>.comment-box>.foot {
+  width: 12%;
+  height: 200rpx;
+}
+
+.comment>.comment-box>.foot>image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+
+/* 评论输入框 */
+.input {
+  width: 100%;
+  min-height: 100rpx;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  box-shadow: 0px -10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.input>image {
+  width: 37rpx;
+  height: 37rpx;
+}
+
+.input>.text {
+  width: 510rpx;
+  font-size: 26rpx;
+  background-color: #DBDBDB;
+}
+
+.input>.text>textarea {
+  width: 480rpx;
+}
+
+.input>.text>.bigComBox>.comBox {
+  width: 120rpx;
+  height: 120rpx;
+  position: relative;
+}
+
+.input>.text>.bigComBox>.comBox>image {
+  width: 100%;
+  height: 100%;
+}
+
+.input>.text>.bigComBox>.comBox>.delete {
+  width: 20rpx;
+  height: 20rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.input>.text>.bigComBox>.comBox>.delete>image {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.input>.text>.bigComBox>.file>.file-btn {
+  width: 100rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background-color: #999999;
+  color: white;
+}
+
+.input>.icon {
+  width: 150rpx;
+  height: 100%;
+}
+
+.input>.icon>image {
+  width: 37rpx;
+  height: 37rpx;
+}
+
+
+button::after {
+  border: none;
+}
+
+button {
+  width: 37rpx !important;
+  height: 37rpx !important;
+  background-color: transparent;
+  padding: 0 0 0 0 !important;
+  line-height: inherit;
+}
+
+.button-hover {
+  /*点击后样式*/
+  background-color: transparent;
+}
+
+.help {
+  width: 80rpx !important;
+  height: 80rpx !important;
+  position: fixed !important;
+  bottom: 400rpx !important;
+  right: 0 !important;
+  background-color: rgb(221, 221, 221) !important;
+  padding: 10rpx 10rpx 10rpx 10rpx !important;
+  border-radius: 20rpx !important;
+}
+
+.help>image {
+  width: 60rpx;
+  height: 60rpx;
+}

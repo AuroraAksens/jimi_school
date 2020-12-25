@@ -1,0 +1,34 @@
+<!--pages/take/take.wxml-->
+<view class="px-30">
+	<view class="take mt-30 bou-20">
+		<view class="head pt-30">
+			<view class="head-top">到账账户</view>
+			<view class="head-center d-fx jc-start py-30">
+				<image src="{{userimg}}"></image>
+				<view class="ml-30" style="font-size: 34rpx;">
+					<view>{{username}}</view>
+					<view class="mt-20" style="font-size: 26rpx;color: #868686;" wx:if="{{sta == 1}}">{{bankName}}</view>
+					<view class="mt-20" style="font-size: 26rpx;color: #868686;" wx:if="{{sta == 0}}">微信提现</view>
+				</view>
+			</view>
+			<view class="head-bottom mt-20"  style="font-size: 29rpx;">提现金额</view>
+		</view>
+ 
+		<view class="body d-fx jc-start ai-center">
+			<view>￥</view>
+			<input maxlength="10" style="font-size: 29rpx;" bindinput="takeMoney" value="{{money}}" placeholder="提现金额" />
+		</view>
+
+		<view class="foot">
+      <view class="foot-top d-fx jc-start">
+        <view style="color:#AAAAAA">零钱余额￥{{moneys}}</view>
+        <view class="ml-30" style="color:#85CF7A" bindtap="getOll">全部提现</view>
+      </view>
+      <view class="foot-center">
+        <button wx:if="{{sta == 1}}" bindtap="takePost">提现</button>
+        <button wx:if="{{sta == 0}}" bindtap="takeweixinPost">提现</button>
+      </view>
+    </view>
+
+	</view>
+</view>

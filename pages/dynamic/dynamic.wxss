@@ -1,0 +1,51 @@
+/* pages/dynamic/dynamic.wxss */
+page {
+  background-color: white;
+}
+
+.text {
+  width: 85%;
+}
+
+.text-box {
+  width: 100%;
+}
+
+.buttom {
+  width: 155rpx;
+  height: 110rpx;
+  background-color: #FDAE3C;
+  color: white;
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 75rpx;
+  position: absolute;
+  bottom: 50rpx;
+  right: 50rpx;
+  border: 1px solid;
+}
+
+.img>image {
+  width: 270rpx;
+  height: 300rpx;
+}
+
+.imageArr {
+  width: 210rpx;
+  height: 210rpx;
+  position: relative;
+}
+
+.delete {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 5rpx;
+  z-index: 50;
+}
+
+.delete>image {
+  width: 30rpx;
+  height: 30rpx;
+}

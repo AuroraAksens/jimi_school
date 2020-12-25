@@ -1,0 +1,48 @@
+
+.h-title{
+  width: 100%;
+  height: 80rpx;
+  background-color: white;
+  color: #969696;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  border-top: 1px solid #e0e0e0;
+}
+
+.active{
+  color: #F4AE3B;
+  position: relative;
+}
+.bot{
+  width: 36rpx;
+  height: 5rpx;
+  background:rgba(244,174,59,1);
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  width: 35rpx !important;
+  height: 35rpx !important;
+  background-color: transparent;
+  padding: 0 0 0 0 !important;
+  line-height: inherit;
+}
+
+.button-hover {
+  /*点击后样式*/
+  background-color: transparent;
+}
+
+.noData{
+  width: 200rpx;
+  font-size: 24rpx;
+  margin: 30rpx auto;
+  color: rgb(148, 148, 148);
+  text-align: center;
+}

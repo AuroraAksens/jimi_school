@@ -1,0 +1,19 @@
+<!--pages/userDetails/userDetails.wxml-->
+<view class="top"></view>
+
+<block wx:for="{{userDetails}}" wx:key="index" wx:if="{{userDetails.length != 0}}">
+	<view class="userBox py-20 d-fx jc-between">
+		<view class="left">
+			<view class="mb-10">{{item.name}}</view>
+			<view style="font-size: 24rpx;color:#A2A2A2;font-weight: 500;">{{item.create_time}}</view>
+		</view>
+		<view class="right">
+			{{item.price}}
+		</view>
+	</view>
+</block>
+
+<view wx:if="{{userDetails.length == 0}}" class="none">暂无数据</view>
+
+
+

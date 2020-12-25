@@ -1,0 +1,121 @@
+/* pages/add-task/add-task.wxss */
+page {
+  background-color: #EEEEEE;
+}
+
+.task {
+  width: 90%;
+  margin: auto;
+}
+
+.task>.head {
+  width: 100%;
+  height: 90rpx;
+  background-color: white;
+  border-radius: 100rpx;
+  font-size: 38rpx;
+}
+
+.task>.head>.tab {
+  width: 50%;
+  height: 100%;
+  border-radius: 100rpx;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+.task>.head>.tabs {
+  width: 50%;
+  height: 100%;
+  border-radius: 100rpx;
+  text-align: center;
+  line-height: 90rpx;
+  background-color: #FDAE3C;
+  color: white;
+}
+
+.foot {
+  width: 100%;
+  height: 90rpx;
+}
+
+/* 高亮下单 */
+.foot>.but {
+  width: 100%;
+  height: 90rpx;
+  background-color: #FDAE3C;
+  text-align: center;
+  color: white;
+  font-size: 39rpx;
+  border-radius: 100rpx;
+}
+
+/* 限制下单 */
+.foot>.buts {
+  width: 100%;
+  height: 90rpx;
+  background-color: #e0e0e0;
+  text-align: center;
+  color: rgb(99, 99, 99);
+  font-size: 39rpx;
+  border-radius: 100rpx;
+}
+
+
+.buttom {
+  width: 180rpx !important;
+  height: 65rpx !important;
+  background-color: #FDAE3C;
+  color: white;
+  border-radius: 50rpx;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 35rpx;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 8px 10px !important;
+}
+
+
+.imageArr {
+  width: 136rpx;
+  height: 145rpx;
+  position: relative;
+}
+.imageArr>image{
+  width: 136rpx;
+  height: 145rpx;
+}
+
+.delete {
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 50;
+}
+
+.delete>image{
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.itemImage{
+    width: 94%;
+    margin-top: 20rpx;
+    background-color: white;
+    border-radius: 15rpx;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 32rpx;
+}
+

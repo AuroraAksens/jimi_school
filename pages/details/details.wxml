@@ -1,0 +1,432 @@
+<!--pages/details/details.wxml-->
+
+<view style="background-color: white;overflow: hidden">
+	<!-- m-card 详情 -->
+	<view class="m-card pt-20 bou-15">
+		<!-- head -->
+		<view class="head py-30 px-30 d-fx jc-start">
+			<view class="img" bindtap="getmesgoPersonal">
+				<image src="{{listDetails.user.image}}"></image>
+				<image wx:if="{{listDetails.idCardStatus == 2}}" class="vip" src="/images/vip.png"></image>
+			</view>
+			<view class="title mt-20 ml-20" bindtap="getmesgoPersonal">
+				<view class="title-namer">
+					{{listDetails.user.name}}
+					<image class="Gender ml-10" wx:if="{{listDetails.user.genderlist == 0 && listDetails.user.admin_id == 0}}" src="/images/icon/show.png"></image>
+					<image class="Gender ml-10" wx:if="{{listDetails.user.genderlist == 1 && listDetails.user.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+					<image class="official ml-10" wx:if="{{listDetails.user.admin_id == 1}}" src="/images/icon/official.png"></image>
+				</view>
+				<view class="title-bottom pt-10 d-fx">
+					<view>{{listDetails.create_time}}</view>
+					<view class="ml-30">{{listDetails.user.school.name}}</view>
+				</view>
+			</view>
+
+			<!-- 删除动态 -->
+			<view class="foot" wx:if="{{MyuserID == articleID && articleStatus == 0}}">
+				<image src="/images/icon/Trash.png" bindtap="deleteArticle"></image>
+			</view>
+
+			<!-- 取消发布 -->
+			<view class="foot" wx:if="{{MyuserID == articleID && articleStatus == 1 && listDetails.is_cancel == 1}}">
+				<image src="/images/icon/Trash.png" bindtap="deleteMyTask"></image>
+			</view>
+
+			<!-- 取消接单 -->
+			<view class="foot" wx:if="{{MyuserID != articleID && articleStatus == 1 && listDetails.is_cancel == 2}}">
+				<image src="/images/icon/Trash.png" bindtap="deleteOrderTask"></image>
+			</view>
+		</view>
+		<!-- head结束 -->
+
+		<!-- body -->
+		<view class="body mb-30">
+
+			<view class="img px-30 mx-10 d-fx jc-start" wx:if="{{listDetails.images}}">
+				<block wx:for="{{listDetails.images}}" wx:key="index">
+					<image src="{{item}}" data-src="{{item}}" bindtap="messImg"></image>
+				</block>
+			</view>
+
+			<!-- 动态文字 -->
+			<view class="content py-30 ml-30 pl-10">{{listDetails.content}}</view>
+			<!-- 动态文字结束 -->
+
+			<view class="task mx-30 py-30 bou-15" wx:if="{{listDetails.express}}">
+				<view class="head px-10 d-fx jc-around pb-30">
+					<view class="pl-10" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{mName}}</view>
+					<view class="pr-30 mr-30" style="width:300rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis">
+						<image style="width:24rpx;height:24rpx;" src="/images/icon/phone.png"></image> {{mPhone}}
+					</view>
+					<view class="pr-10" style="color:#FC2C43;">￥{{listDetails.money}}</view>
+				</view>
+				<view class="content">
+					<view class="length py-20 d-fx jc-between" style="border-top:none" wx:if="{{listDetails.express.length != 0}}">
+						<view>件数</view>
+						<view>{{listDetails.express.length}}件</view>
+					</view>
+
+					<view class="length py-20" wx:if="{{listDetails.express.length != 0}}" wx:for="{{listDetails.express}}" wx:key="index">
+						<view class="d-fx jc-start ai-center pb-10">
+							<view class="d-fx jc-between ai-center" style="width:180rpx;">
+								<image src="/images/icon/access_place.png" style="width:25rpx;height:25rpx"></image>
+								<view>取件地点</view>
+							</view>
+							<view class="ml-30 pl-30" style="width:450rpx;color: #6d6d6d;word-break:break-all;white-space:pre-wrap">{{item.access_place}}</view>
+						</view>
+						<view class="d-fx jc-start ai-center pb-10 mt-20">
+							<view class="d-fx jc-between ai-center" style="width:180rpx;">
+								<image src="/images/icon/service_place.png" style="width:25rpx;height:25rpx"></image>
+								<view>送达地点</view>
+							</view>
+							<view class="ml-30 pl-30" style="width:450rpx;color: #6d6d6d;word-break:break-all;white-space:pre-wrap">{{item.service_place}}</view>
+						</view>
+						<view class="d-fx jc-start ai-center mt-20" wx:if="{{listDetails.btn > 0 && listDetails.btn <= 2}}">
+							<view style="width:180rpx;padding-left: 45rpx;">取件信息</view>
+							<view class="lengthBox pl-10" style="width:450rpx;color: #6d6d6d;word-break:break-all;white-space:pre-wrap">{{item.message}}</view>
+						</view>
+
+						<view class="d-fx jc-start ai-center mt-30" wx:if="{{listDetails.btn > 0 && listDetails.btn <= 2}}">
+							<view style="width:180rpx;padding-left: 45rpx;">取件图片</view>
+							<view class="lengthBox pl-10" style="width:450rpx;color: #6d6d6d;word-break:break-all;white-space:pre-wrap">
+								<block wx:for="{{item.images}}" wx:key="index" wx:if="{{item.images.length != 0}}">
+									<image style="width:100rpx;height:100rpx" class="mr-20" src="{{item}}" data-src="{{item}}" bindtap="showImg"></image>
+								</block>
+								<view  wx:if="{{item.images.length == 0}}">暂无上传图片</view>
+							</view>
+						</view>
+
+
+					</view>
+
+
+
+					<view class="length py-20" wx:if="{{listDetails.express.length == 0}}">
+						<view class="d-fx jc-start pb-10">
+							<view>{{listDetails.represent}}</view>
+						</view>
+					</view>
+
+					<!-- <view class="length"></view> -->
+
+					<view class="length py-20">
+						<view class="d-fx jc-start pb-10">
+							<view style="width:100rpx">备注：</view>
+							<view>{{listDetails.remarks}}</view>
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+		<!-- body结束 -->
+	</view>
+	<!-- m-card 详情结束 -->
+
+	<!-- status -->
+	<view class="status d-fx flex-cl ai-center pb-30" wx:if="{{status != 4 && listDetails.express}}">
+		<view class="title ml-30 py-30">任务状态</view>
+
+		<view class="body">
+			<!-- 新发布 -->
+			<view class="{{status >= 0 ? 'spot' : 'spots'}}">
+				<view class="m-spot"></view>
+			</view>
+
+			<!-- 被接单 -->
+			<view class="{{status >= 1 ? 'spot' : 'spots'}}" style="left: 220rpx;">
+				<view class="m-spot"></view>
+			</view>
+
+			<!-- 已完成 -->
+			<view class="{{status >= 2 ? 'spot' : 'spots'}}" style="left: 380rpx;">
+				<view class="m-spot"></view>
+			</view>
+
+			<!-- 已结算 -->
+			<view class="{{status >= 3 ? 'spot' : 'spots'}}" style="left: 540rpx;">
+				<view class="m-spot"></view>
+			</view>
+
+			<view class="{{status >= 1 ? 'xians' : 'xian'}}"></view>
+			<view class="{{status >= 2 ? 'xians' : 'xian'}}" style="left:250rpx"></view>
+			<view class="{{status >= 3 ? 'xians' : 'xian'}}" style="left:410rpx"></view>
+
+			<view class="text d-fx jc-around">
+				<view class="{{status >= 0 ? 'm-text' : 'm-texts'}}">新发布</view>
+				<view class="{{status >= 1 ? 'm-text' : 'm-texts'}}">被接单</view>
+				<view class="{{status >= 2 ? 'm-text' : 'm-texts'}}">已完成</view>
+				<view class="{{status >= 3 ? 'm-text' : 'm-texts'}}">已结算</view>
+			</view>
+
+		</view>
+
+		<view wx:if="{{listDetails.btn == 0}}" class="buttom mt-30 bou-15" data-btnId="{{listDetails.btn}}" bindtap="receiving">
+			接单
+		</view>
+
+		<view wx:if="{{listDetails.btn == 1}}" class="buttom mt-30 bou-15" data-btnId="{{listDetails.btn}}" bindtap="complete">
+			已完成
+		</view>
+
+		<view wx:if="{{listDetails.btn == 2}}" class="buttom mt-30 bou-15" data-btnId="{{listDetails.btn}}" bindtap="confirm">
+			确认完成
+		</view>
+
+		<!-- 接单同学 -->
+		<view wx:if="{{listDetails.is_show == 1 && listDetails.is_show2 == 1}}" class="student">
+			<view class="title">
+				接单同学
+			</view>
+			<view class="content d-fx jc-start">
+				<view class="left d-fx jc-center ai-center">
+					<image src="{{user_info.image}}" style="width: 90rpx;height: 90rpx; border-radius:50%;"></image>
+				</view>
+				<view class="body pl-20">
+					<view style="font-size:28rpx;height:60rpx" class="py-10 mt-20 d-fx jc-start ai-center">
+						<view>{{user_info.name}}</view>
+						<image class="Gender ml-10" wx:if="{{user_info.genderlist == 0 && user_info.admin_id == 0}}" src="/images/icon/show.png"></image>
+						<image class="Gender ml-10" wx:if="{{user_info.genderlist == 1 && user_info.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+						<image class="official ml-10" wx:if="{{user_info.admin_id == 1}}" src="/images/icon/official.png"></image>
+					</view>
+
+					<view style="font-size:22rpx;color:#999999" class="d-fx jc-start">
+						<view>{{user_info.create_time}}</view>
+						<view class="pl-20" style="width:300rpx">{{user_info.school.name}}</view>
+					</view>
+				</view>
+				<view class="right d-fx jc-end ai-center">
+					<image class="mr-30" src="/images/icon/message.png" style="width: 60rpx;height: 60rpx;" data-wxhao="{{user_info.phone}}" bindtap="callWXhao"></image>
+					<image src="/images/icon/StudentPhone.png" style="width: 60rpx;height: 60rpx;" data-phone="{{user_info.phone}}" bindtap="callPhone"></image>
+				</view>
+			</view>
+			<view class="foot mt-10 d-fx jc-betweem ai-center">
+				<view class="left d-fx ai-start">
+
+					<view class="top py-20 pl-30" wx:if="{{effect.length != 0}}">
+						<view>TA的印象</view>
+						<view class="box my-10 mr-10 d-fx jc-start flex-w">
+							<block wx:for="{{effect}}" wx:key="index" wx:if="{{index < 9}}">
+								<view class="minbox mr-10 px-20 py-10 mt-10 bou-25">{{item.name}}</view>
+							</block>
+						</view>
+					</view>
+
+					<view class="top py-20 pl-30" wx:if="{{effect.length == 0}}">
+						<view>TA的印象</view>
+						<view class="box my-10 mr-10 d-fx jc-start flex-w">
+							<view class="minbox mr-10 px-20 py-10 mt-10 bou-25">暂无印象</view>
+						</view>
+					</view>
+
+				</view>
+				<view class="right">
+					<view class="navButtom" bindtap="gotoPersonal">查看主页</view>
+					<image src="/images/icon/student.png" style="width:120rpx;height:120rpx;"></image>
+				</view>
+			</view>
+		</view>
+		<!-- 接单同学结束 -->
+
+		<!-- 派单同学 -->
+		<view wx:if="{{listDetails.is_show == 1 && listDetails.is_show2 == 0}}" class="student">
+			<view class="title">
+				派单同学
+			</view>
+			<view class="content d-fx jc-start">
+				<view class="left d-fx jc-center ai-center">
+					<image src="{{user_info.image}}" style="width: 90rpx;height: 90rpx; border-radius:50%;"></image>
+				</view>
+				<view class="body pl-20">
+					<view style="font-size:28rpx;height:60rpx" class="py-10 mt-20 d-fx jc-start ai-center">
+						<view>{{user_info.name}}</view>
+						<image class="Gender ml-10" wx:if="{{user_info.genderlist == 0 && user_info.admin_id == 0}}" src="/images/icon/show.png"></image>
+						<image class="Gender ml-10" wx:if="{{user_info.genderlist == 1 && user_info.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+						<image class="official ml-10" wx:if="{{user_info.admin_id == 1}}" src="/images/icon/official.png"></image>
+					</view>
+					<view style="font-size:22rpx;color:#999999" class="d-fx jc-start">
+						<view>{{user_info.create_time}}</view>
+						<view class="pl-20" style="width:300rpx">{{user_info.school.name}}</view>
+					</view>
+				</view>
+				<view class="right d-fx jc-end ai-center">
+					<image class="mr-30" src="/images/icon/message.png" style="width: 60rpx;height: 60rpx;" data-wxhao="{{user_info.phone}}" bindtap="callWXhao"></image>
+					<image src="/images/icon/StudentPhone.png" style="width: 60rpx;height: 60rpx;" data-phone="{{user_info.phone}}" bindtap="callPhone"></image>
+				</view>
+			</view>
+			<view class="foot mt-10 d-fx jc-betweem ai-center">
+				<view class="left">
+
+					<view class="top py-20 pl-30" wx:if="{{effect.length != 0}}">
+						<view>TA的印象</view>
+						<view class="box my-10 mr-10 d-fx jc-start flex-w">
+							<block wx:for="{{effect}}" wx:key="index" wx:if="{{index < 9}}">
+								<view class="minbox mr-10 px-20 py-10 mt-10 bou-25">{{item.name}}</view>
+							</block>
+						</view>
+					</view>
+
+					<view class="top py-20 pl-30" wx:if="{{effect.length == 0}}">
+						<view>TA的印象</view>
+						<view class="box my-10 mr-10 d-fx jc-start flex-w">
+							<view class="minbox mr-10 px-20 py-10 mt-10 bou-25">暂无印象</view>
+						</view>
+					</view>
+
+				</view>
+				<view class="right">
+					<view class="navButtom" bindtap="gotoPersonal">查看主页</view>
+					<image src="/images/icon/student.png" style="width:120rpx;height:120rpx;"></image>
+				</view>
+			</view>
+		</view>
+		<!-- 派单同学结束 -->
+
+
+	</view>
+	<!-- status结束 -->
+</view>
+
+<!-- 评论 -->
+<view class="mt-30" style="background-color: white;">
+	<view class="comment d-fx jc-center ai-center flex-cl py-30">
+		<view class="head d-fx flex-cl pl-10">
+			<p>{{listDetails.good}}个人点了赞</p>
+			<p>{{comment}}条评论</p>
+		</view>
+
+		<view class="body py-10" wx:if="{{listComment.length == 0}}">快写下你的评论吧！</view>
+
+		<!-- 评论模块 -->
+		<block wx:for="{{listComment}}" wx:key="index" wx:if="{{listComment.length != 0}}">
+
+			<view class="comment-box d-fx jc-start mt-30 pt-30">
+
+				<view class="head">
+					<image style="border-radius: 50%;" src="{{item.user.image}}" data-id="{{item.user.id}}" bindtap="comGotoPersonal"></image>
+					<image wx:if="{{item.idCardStatus == 2}}" class="vip" src="/images/vip.png"></image>
+				</view>
+				<view class="body">
+					<view class="name" data-id="{{item.user.id}}" bindtap="comGotoPersonal">
+						{{item.user.name}}
+						<image class="Gender ml-10" wx:if="{{item.user.genderlist == 0 && item.user.admin_id == 0}}" src="/images/icon/show.png"></image>
+						<image class="Gender ml-10" wx:if="{{item.user.genderlist == 1 && item.user.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+						<image class="official ml-10" wx:if="{{item.user.admin_id == 1}}" src="/images/icon/official.png"></image>
+					</view>
+
+					<view class="tisc my-10 d-fx jc-start" data-comId="{{item.id}}" data-comUserId="{{item.user.id}}" bindtap="replyComment">
+						<view>{{item.create_time}}</view>
+						<view class="ml-30">{{item.user.school.name}}</view>
+					</view>
+					<view class="text my-30" data-comId="{{item.id}}" data-comUserId="{{item.user.id}}" bindtap="replyComment">
+						{{item.content}}
+					</view>
+
+					<image src="{{item.image}}" wx:if="{{item.image != null}}" data-src="{{item.image}}" bindtap="viewImage" style="width:100rpx;height:100rpx;" class="my-10 mr-20 bou-15"></image>
+
+					<!-- 回复 -->
+					<view class="reply py-20 px-20 mt-10 bou-15" wx:if="{{item.child}}">
+						<view class="reply-box pt-10 d-fx jc-start" wx:for="{{item.child}}" wx:key="index" wx:if="{{index<2}}">
+							<view class="reply-name">{{item.user.name}}</view>
+							<view class="reply-text">：{{item.content}}</view>
+						</view>
+						<view class="reply-con mt-10" data-index="{{index}}" bindtap="showReply">共{{item.child.length}}条回复 ></view>
+					</view>
+					<!-- 回复结束 -->
+				</view>
+				<view class="foot d-fx jc-between flex-w ">
+					<image bindtap="commentGood" src="{{item.good_status == 0 ? '/images/icon/good.png' : '/images/icon/goods.png'}}" data-id="{{item.id}}" data-status="{{item.status}}" data-index="{{index}}"></image>
+					<view style="color:#989898;">{{item.good}}</view>
+				</view>
+			</view>
+
+			<!-- 回复弹框 -->
+			<view class="reply-total" wx:if="{{reply == 1}}">
+			</view>
+			<view class="total-box" wx:if="{{reply == 1}}">
+				<view class="title">{{child.length}}条回复</view>
+				<image class="close" src="/images/icon/close.png" bindtap="showReply"></image>
+
+				<!-- 回复评论 -->
+				<scroll-view scroll-y="true" class="mt-30" style="background-color: white;height: 1000rpx;">
+					<view class="comment d-fx jc-center ai-center flex-cl py-30">
+
+						<!-- 回复评论模块 -->
+						<block wx:for="{{child}}" wx:key="index">
+							<view class="comment-box mb-30 pb-10 d-fx jc-start">
+								<view class="head" data-id="{{item.user.id}}" bindtap="comGotoPersonal">
+									<image src="{{item.user.image}}" style=" border-radius:50%;"></image>
+									<image wx:if="{{item.idCardStatus == 2}}" class="vip" src="/images/vip.png"></image>
+								</view>
+								<view class="body">
+									<view class="name" data-id="{{item.user.id}}" bindtap="comGotoPersonal">
+										{{item.user.name}}
+										<image class="Gender ml-10" wx:if="{{item.user.genderlist == 0 && item.user.admin_id == 0}}" src="/images/icon/show.png"></image>
+										<image class="Gender ml-10" wx:if="{{item.user.genderlist == 1 && item.user.admin_id == 0}}" src="/images/icon/showboy.png"></image>
+										<image class="official ml-10" wx:if="{{item.user.admin_id == 1}}" src="/images/icon/official.png"></image>
+									</view>
+									<view class="tisc my-10 d-fx jc-start">
+										<view>{{item.create_time}}</view>
+										<view class="ml-30">{{item.user.school.name}}</view>
+									</view>
+
+									<view class="text">
+										{{item.content}}
+									</view>
+
+									<image src="{{item.image}}" wx:if="{{item.image != null}}" data-src="{{item.image}}" bindtap="viewImage" style="width:100rpx;height:100rpx;" class="my-10 mr-20 bou-15"></image>
+								</view>
+								<view class="foot d-fx jc-between">
+									<image bindtap="ReplycommentGood" src="{{item.good_status == 0 ? '/images/icon/good.png' : '/images/icon/goods.png'}}" data-id="{{item.id}}" data-status="{{item.status}}" data-index="{{index}}"></image>
+									<view style="color:#989898;">{{item.good}}</view>
+								</view>
+							</view>
+						</block>
+						<!-- 回复评论模块结束 -->
+
+					</view>
+				</scroll-view>
+				<!-- 回复评论结束 -->
+
+			</view>
+			<!-- 回复弹框结束 -->
+		</block>
+		<!-- 评论模块结束 -->
+
+
+	</view>
+</view>
+<!-- 评论结束 -->
+
+<!-- 评论输入框 -->
+<view class="input py-10 px-20 d-fx jc-around ai-center" wx:if="{{reply == 0}}">
+	<image src="/images/icon/commentpic.png" bindtap="postImage"></image>
+	<view class="text bou-20">
+		<textarea class="px-20 py-10" focus="{{false}}" auto-height bindinput="commentInput" value="{{commentText}}" cursor-spacing="100" maxlength="100" type="text" placeholder="说点什么吧..."></textarea>
+
+		<view class="bigComBox d-fx {{imgArr.length>0 ? 'jc-between' : 'jc-end' }}">
+			<view class="comBox my-10 mx-20" wx:if="{{imgArr.length > 0}}">
+				<image src="{{imgArr}}"></image>
+				<view bindtap="deleteImage" class="delete">
+					<image src="/images/icon/deleteimg.png"></image>
+				</view>
+			</view>
+			<view class="file d-fx jc-end ai-end pb-10 mr-20" wx:if="{{commentText != '' || imgArr.length > 0}}">
+				<view class="file-btn bou-20" bindtap="postComment">发送</view>
+			</view>
+		</view>
+
+	</view>
+
+	<button class="help" open-type='contact'>
+		<image src="/images/icon/getservice.png"></image>
+	</button>
+
+	<view class="icon d-fx jc-around ai-center">
+		<image src="{{listDetails.good_status == 0 ? '/images/icon/good.png' : '/images/icon/goods.png'}}" bindtap="detailsGood" data-id="{{listDetails.id}}" data-status="{{listDetails.status}}"></image>
+		<button open-type="share" hover-class="btn-hover">
+			<image class="share-img" src="/images/icon/share.png" bindtap="share" style="width: 35rpx;height: 35rpx;transform: rotate(-90deg);"></image>
+		</button>
+	</view>
+</view>
+<!-- 评论输入框结束 -->
